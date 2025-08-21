@@ -13,11 +13,11 @@ public class Main {
 		String middle1 = "n", middle2 = "n", middle3 = "n";
 		String bottom1 = "n", bottom2 = "n", bottom3 = "n";	
 		
-		final int topRow = 3;
-		final int middleRow = 3;
-		final int bottomRow = 3;
-		final int objects = 2;
-		final int columns = 3;
+		int topRow = 3;
+		int middleRow = 3;
+		int bottomRow = 3;
+		int objects = 2;
+		int columns = 3;
 		
 		int userRowInput = 0;
 		int userObjectInput1 = 0;
@@ -55,7 +55,7 @@ public class Main {
 
 		
 		//Checker of user picked
-		if (userObjectInput1 > columns) {
+		if (userObjectInput1 >= 3) {
 			System.out.println("Only pick the number inside the index!");
 			System.out.print("Player 1 pick one: ");
 			userObjectInput1 = Integer.parseInt(reader.readLine());
@@ -72,6 +72,23 @@ public class Main {
 		} else if (userObjectInput1 == 2){
 			System.out.println("Player 1 picked O");
 		} else {
+
+		}
+		
+		System.out.print("Player 2 pick one: ");
+		userObjectInput1 = Integer.parseInt(reader.readLine());
+
+		
+		//Checker of user picked
+		if (userObjectInput2 > columns) {
+			System.out.println("Only pick the number inside the index!");
+			System.out.print("Player 2 pick one: ");
+			userObjectInput2 = Integer.parseInt(reader.readLine());
+		} else if (userObjectInput2 < 0) {
+			System.out.println("Only pick the number inside the index!");
+			System.out.print("Player 2 pick one: ");
+			userObjectInput2 = Integer.parseInt(reader.readLine());
+		} else {		
 
 		}
 		
