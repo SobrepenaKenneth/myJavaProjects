@@ -57,27 +57,23 @@ public class Main {
 		System.out.print("Pumile ng numero: ");
 		userPicked = Integer.parseInt(reader.readLine());
 		System.out.println("-----------------------------------------");
-
-		// - LIST OF ACTIVITIES -
-		order1 = Integer.parseInt(reader.readLine());
-		order2 = Integer.parseInt(reader.readLine());
 		
 		// MADE BY:
 		// Festival Schedule (1)
 		String menuOption = (userPicked == 1) ? "- Aninag Festival Shedule - " 
 				+ "\n 8:00 am : Start of event" 
 				+ "\n 9:00 am : Parade":
+				(userPicked == 2) ?
+						"":
 				(userPicked == 3) ? " You Choosed Food Stall " 
-				+ "You can only order 2!"
-				+ "[1] - 5 pesos : Puto" 
-				+ "[2] - 10 pesos : pancit" 
-				+ " Pick your first order: " + order1
-				+ " Pick your second order: " + order2
-				: "asdasd";
+					+ "You can only order 2!"
+					+ "[1] - 5 pesos : Puto" 
+					+ "[2] - 10 pesos : pancit" 
+					+ " Pick your first order: " 
+					+ " Pick your second order: " 
+					: "asdasd";
 		System.out.println(menuOption);
-		
-		int foodStall = (order1 == 1)? PUTO : PUTO;
-		System.out.println(foodStall);
+
 		// MADE BY:
 		// Food Stall (3)
 		
