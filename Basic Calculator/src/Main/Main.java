@@ -15,7 +15,6 @@ public class Main {
 	
 	// TODO: put a UI design
 	public static void greet() throws NumberFormatException, IOException {
-				
 		System.out.println("----------------------------");
 		System.out.println("     - Calculator - ");
 		System.out.println("----------------------------");
@@ -39,14 +38,35 @@ public class Main {
 					valid = true;
 				} else if (operator < 0){
 					System.out.println("----------------------------");
+					System.out.println("     - Calculator - ");
+					System.out.println("----------------------------");
+					System.out.println("> [0] | + | ADDITION       <");
+					System.out.println("> [1] | - | SUBTRACTION    <");
+					System.out.println("> [2] | * | MULTIPLICATION <");
+					System.out.println("> [3] | / | DIVISION       <");
+					System.out.println("----------------------------");
 					System.out.println("Please enter a number \nbetween 0 to 3!");	
 					System.out.println("----------------------------");
 				} else {
+					System.out.println("----------------------------");
+					System.out.println("     - Calculator - ");
+					System.out.println("----------------------------");
+					System.out.println("> [0] | + | ADDITION       <");
+					System.out.println("> [1] | - | SUBTRACTION    <");
+					System.out.println("> [2] | * | MULTIPLICATION <");
+					System.out.println("> [3] | / | DIVISION       <");
 					System.out.println("----------------------------");
 					System.out.println("Please enter a number \nbetween 0 to 3!");
 					System.out.println("----------------------------");
 				}
 			} catch (Exception e) {
+				System.out.println("----------------------------");
+				System.out.println("     - Calculator - ");
+				System.out.println("----------------------------");
+				System.out.println("> [0] | + | ADDITION       <");
+				System.out.println("> [1] | - | SUBTRACTION    <");
+				System.out.println("> [2] | * | MULTIPLICATION <");
+				System.out.println("> [3] | / | DIVISION       <");
 				System.out.println("----------------------------");
 				System.out.println("Please only enter a number \nbetween 0 to 3!");
 				System.out.println("----------------------------");
@@ -159,7 +179,6 @@ public class Main {
 			exit();
 		}
 	}
-	
 	public static void exit() {
 		System.out.println("----------------------------");
 		System.out.println("- Thank you for using the Calculator! -");
