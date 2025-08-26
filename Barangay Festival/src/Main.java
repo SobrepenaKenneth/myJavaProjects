@@ -60,19 +60,24 @@ public class Main {
 		
 		// MADE BY:
 		// Festival Schedule (1)
-		String menuOption = (userPicked == 1) ? "- Aninag Festival Shedule - " 
+		String menuOption1 = (userPicked == 1) ? "- Aninag Festival Shedule - " 
 				+ "\n 8:00 am : Start of event" 
-				+ "\n 9:00 am : Parade":
-				(userPicked == 2) ?
-						"":
-				(userPicked == 3) ? " You Choosed Food Stall " 
-					+ "You can only order 2!"
-					+ "[1] - 5 pesos : Puto" 
-					+ "[2] - 10 pesos : pancit" 
-					+ " Pick your first order: " 
-					+ " Pick your second order: " 
-					: "asdasd";
-		System.out.println(menuOption);
+				+ "\n 9:00 am : Parade": "";
+		
+		String menuOption2 = (userPicked == 2) ? "Test 2" 
+				+ "\n 9:00 am : Parade": "";
+		String menuOption3 = (userPicked == 2) ? "Test 2" 
+				+ "\n 9:00 am : Parade": "";
+		String menuOption4 = (userPicked == 2) ? "Test 2" 
+				+ "\n 9:00 am : Parade": "";
+		String menuOption5 = (userPicked == 2) ? "Test 2" 
+				+ "\n 9:00 am : Parade": "";
+
+		System.out.println(menuOption1);
+		System.out.println(menuOption2);
+		System.out.println(menuOption2);
+		System.out.println(menuOption2);
+		System.out.println(menuOption2);
 
 		// MADE BY:
 		// Food Stall (3)
