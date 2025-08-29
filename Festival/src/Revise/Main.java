@@ -80,7 +80,6 @@ public class Main {
 		reader.readLine();
 		System.out.println("-------------------------------------------");
 
-		// TODO:
 		// XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 		// >>>>> ------------------- FOOD STALL ------------------- <<<<<
 		// XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
