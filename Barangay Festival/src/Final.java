@@ -29,7 +29,7 @@ public class Final {
 		// Step 3
 		System.out.print("Enter your name: ");
 		String name = reader.readLine();
-		// Greet the user :3
+		
 		System.out.println("--------------------------------------------------");
 		System.out.println("<<->> - Maligayang Pagdalo " + name + "! - <<->>");
 		System.out.println("--------------------------------------------------");
@@ -50,7 +50,7 @@ public class Final {
 		System.out.println("^^^^^^^^^ - THE FIESTA BEGINS - ^^^^^^^^^^");
 		System.out.println("--------------------------------------------------");
 
-		// >>>>> ------------------- TRANSITION ------------------- <<<<<
+		// >>>>> ------------------- TRANSITION 1 ------------------- <<<<<
 		// Step 8
 		System.out.println("- But before we dive into the GAMES and FUN -");
 		System.out.println("--------------------------------------------------");
@@ -72,7 +72,7 @@ public class Final {
 		System.out.println(">>>>> - Welcome to the Food Stall - <<<<<");
 		// Step 13
 		System.out.println(" - Are you ready to choose your meal? -");
-		// Step 14 / 15 / 16
+		// Step 14
 		System.out.println("--------------------------------------------------");
 		System.out.println("^^^^^^^^^^ - Food Stall Menu - ^^^^^^^^^^^^");
 		System.out.println("--------------------------------------------------");
@@ -82,77 +82,76 @@ public class Final {
 		System.out.println("..... - [3] Lumpia     ||     ₱15   - .....");
 		System.out.println("..... - [4] Puto       ||     ₱10   - .....");
 		System.out.println("--------------------------------------------------");
-		
-		// Step 17
+
+		// Step 15
 		System.out.print("Enter the number of your choice: ");
 		input = reader.readLine();
 
-		// Step 18
+		// Step 16
 		try {
-			// XXX: Conversion String to Input (Step 18)
+			// XXX: Conversion String to Input (Step 16)
 			selectInput = Integer.parseInt(input);
 		} catch (NumberFormatException e) {
-			// Step 18
+			// Step 16
 			System.out.println("--------------------------------------------------");
 			System.out.println(">> - Invalid Input! Let me pick for you! - <<");
 			// Set input to the most expensive item.
 			selectInput = 4;
 		}
 
+		// Step 17
+		// FIXME: Use OR instead of nesting! -ken
+		selectInput = (selectInput <= 0 || selectInput > 4) ? 4 :  selectInput;
+
+		// Step 18 
+		// - FOOD -
+		pickedItem = (selectInput == 1) ? "Lechon"
+				   : (selectInput == 2) ? "Pancit"
+				   : (selectInput == 3) ? "Lumpia" 
+				   : (selectInput == 4) ? "Puto" : pickedItem;
+		// - PRICE OF THE FOOD -,
+		price = (selectInput == 1) ? 120
+			  : (selectInput == 2) ? 80
+			  : (selectInput == 3) ? 15 
+			  : (selectInput == 4) ? 10 : price;
+
 		// Step 19
-		selectInput = (selectInput <= 0) ? 1 : selectInput;
-		
-		// Step 20
-		selectInput = (selectInput > 4) ? 4 : selectInput;
-
-		// Step 21 (name of the item / price of the item)
-		pickedItem = (selectInput == 1) ? "Lechon" : pickedItem;
-		price = (selectInput == 1) ? 120 : price;
-
-		pickedItem = (selectInput == 2) ? "Pancit" : pickedItem;
-		price = (selectInput == 2) ? 80 : price;
-
-		pickedItem = (selectInput == 3) ? "Lumpia" : pickedItem;
-		price = (selectInput == 3) ? 15 : price;
-
-		pickedItem = (selectInput == 4) ? "Puto" : pickedItem;
-		price = (selectInput == 4) ? 10 : price;
-
-		// Step 22
 		System.out.println("--------------------------------------------------");
 		System.out.println("^^^^^^ - You picked " + pickedItem + "! - ^^^^^^");
 		System.out.println("--------------------------------------------------");
 
-		// Step 23
-		System.out.print("How much would you like: ");
+		// Step 20
+		System.out.print("How many would you like: ");
 		input = reader.readLine();
 
 		try {
-			// Step 24
+			// Step 21
 			quantityInput = Integer.parseInt(input);
 		} catch (NumberFormatException e) {
-			// Step 25
+			// Step 21
 			System.out.println("--------------------------------------------------");
 			System.out.println(">> - Invalid Input! Let me pick for you! - <<");
 			quantityInput = 1;
 		}
-		
-		// Step 26
+
+		// Step 22
 		price = quantityInput * price;
-		// Step 27
+		// Step 23
 		System.out.println("--------------------------------------------------");
 		System.out.println("Successfully purchased " + quantityInput + " " + pickedItem + " for ₱" + price);
 		System.out.println("--------------------------------------------------");
-		// Step 28
+		// Step 24
 		System.out.println("Please wait for your order on the counter!");
-		// Step 30
+		// Step 25
 		System.out.println("--------------------------------------------------");
 		System.out.print("         <-> - (Press Enter) - <->   ");
 		reader.readLine();
 		System.out.println("--------------------------------------------------");
 
 		// >>>>> ------------------- DRINKS STALL ------------------- <<<<<
+		// Step 26
 		System.out.println("> - Would you like to order some drinks? - <");
+		// Step 27
 		System.out.println("--------------------------------------------------");
 		System.out.println("^^^^^^^^^^^^^ - Beverage Stall - ^^^^^^^^^^^^^^");
 		System.out.println("--------------------------------------------------");
@@ -162,16 +161,17 @@ public class Final {
 		System.out.println(".... - [3] Softdrinks     ||     ₱15    - ....");
 		System.out.println(".... - [4] Buko Juice     ||     ₱10    - ....");
 		System.out.println("--------------------------------------------------");
-		// Ask the user what drinks they would like
+		// Step 28
 		System.out.print("Enter the number of your choice: ");
 		input = reader.readLine();
 
+		// Step 29
 		try {
 			selectInput = Integer.parseInt(input);
 		} catch (NumberFormatException e) {
 			System.out.println("--------------------------------------------------");
-			System.out.println("Invalid Input! Let me pick for you!");
-			// Set input to the most expensive item.
+			System.out.println(">> - Invalid Input! Let me pick for you! - <<");
+			// Default will be Iced Tea -ken
 			selectInput = 1;
 
 		}
@@ -203,10 +203,9 @@ public class Final {
 			quantityInput = Integer.parseInt(input);
 		} catch (NumberFormatException e) {
 			System.out.println("--------------------------------------------------");
-			System.out.println("That doesn't seem to be a number! Defaulting to 1!");
+			System.out.println(">> - Invalid Input! Let me pick for you! - <<!");
 			// Set input to the most expensive item.
 			quantityInput = 1;
-
 		}
 
 		// PROCESS
@@ -272,10 +271,10 @@ public class Final {
 		System.out.println("--------------------------------------------------");
 		System.out.println("^^ - The teams will play " + pickedItem + "! - ^^");
 		System.out.println("--------------------------------------------------");
-		
+
 		System.out.print("How many scores did Team Red get: ");
 		input = reader.readLine();
-		
+
 		System.out.println("--------------------------------------------------");
 
 		try {
@@ -319,13 +318,13 @@ public class Final {
 		// it to positive.
 		scoreDifference = (scoreDifference < 0) ? -scoreDifference : scoreDifference;
 
-		String result = (redScore == blueScore) ? "The match was a draw!" : 
-		        	(redScore > blueScore)
-		            ? "Red Team Won the " + pickedItem + " game with a " + scoreDifference + " lead!"
-		            : "Blue Team Won the " + pickedItem + " game with a " + scoreDifference + " point lead!";
+		String result = (redScore == blueScore) ? "The match was a draw!"
+				: (redScore > blueScore)
+						? "Red Team Won the " + pickedItem + " game with a " + scoreDifference + " lead!"
+						: "Blue Team Won the " + pickedItem + " game with a " + scoreDifference + " point lead!";
 
 		System.out.println(result);
-		
+
 		System.out.println("--------------------------------------------------");
 		System.out.print("          <-> - (Press Enter) - <->   ");
 		reader.readLine();
