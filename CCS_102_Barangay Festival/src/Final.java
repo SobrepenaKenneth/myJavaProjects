@@ -403,14 +403,17 @@ public class Final {
 		// Step 67
 		System.out.println("🎉 Maraming salamat sa lahat ng dumalo! 🎉");
 		System.out.println("❤️ - Kita-kits sa susunod na Fiesta! - ❤️");
-		System.out.println(" ^^^^ Sponsored by Mayor Losamia! ^^^^");
+		//System.out.println(" ^^^^ Sponsored by Mayor Losamia! ^^^^");
 		System.out.println("--------------------------------------------------");
 		// Step 69
+		/*
 		System.out.print("      <-> - (Press Enter To Continue) - <->   ");
 		reader.readLine();
+		*/
 
 		// >>>>> ------------------- CREDITS ------------------- <<<<<
 		// Step 68
+		/*
 		System.out.println("==================================================");
 		System.out.println("^^^^^ - FIESTA SIMULATOR - ^^^^^     ");
 		System.out.println("       >> - MEMBERS - <<             ");
@@ -425,5 +428,6 @@ public class Final {
 		System.out.println(">> - Rabino, Jules Martin E.     - << ");
 		System.out.println(">> - Sobrepeña, Kenneth Ruther B.- <<");
 		System.out.println("=================================================");
+		*/
 	}
 }
