@@ -9,11 +9,9 @@ public class Meralco {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		
 		char choice;
-		char choice_Payment;
+		char paymentChoice;
 		int kilowatt;
 		double bill = 0;
-		double discount;
-		int totalBill = 0;
 		
 		System.out.println("==============================");
 		System.out.println("--------- > Meralco < --------");
@@ -60,7 +58,7 @@ public class Meralco {
 			System.out.println("-------> Invalid Input <-------");
 			System.out.println("-------------------------------");
 			break;
-		}
+		}// Consumption Choice
 		
 		// > Payment Method
 		System.out.println("=============================");
@@ -69,34 +67,35 @@ public class Meralco {
 		System.out.println("---> (C) - Cash Payment < ---");
 		System.out.println("-----------------------------");
 		System.out.print("> Enter Letter Choice: "   );
-		choice_Payment = reader.readLine().toUpperCase().charAt(0);
+		paymentChoice = reader.readLine().toUpperCase().charAt(0);
 		System.out.println("------------------------------");
 		
-		switch (choice_Payment) {
+		switch (paymentChoice) {
 		case 'O' :
-			System.out.println("-> You picked Online Payment <-");
-			System.out.println("------------------------------");
-			discount = bill * 0.05;
-			totalBill = (int) (bill - discount);
-			if (totalBill > 10000) {
-				totalBill = (int) (totalBill * 0.02);
-			}
-			System.out.println("> Your Total Bill: ₱" + totalBill);
-			break;
-		case 'C' :
-			System.out.println("-> You picked Cash Payment <-");
-			System.out.println("------------------------------");
+			System.out.println("> You picked Online Payment <");
+			bill -= bill * 0.05; // apply 5% discount
+			
 			if (bill > 10000) {
-				bill = bill * 0.02;
+				bill += bill * 0.02; // add 2% supercharge
 			}
 			System.out.println("> Your Total Bill: ₱" + bill);
+			System.out.println("------------------------------");
 			break;
+			
+		case 'C' :
+			System.out.println("> You picked Online Payment <");
+			if (bill > 10000) {
+				bill += bill * 0.02; // add 2% supercharge
+			}
+			System.out.println("> Your Total Bill: ₱" + bill);
+			System.out.println("------------------------------");
+			break;
+			
 		default :
 			System.out.println("-------> Invalid Input <-------");
 			System.out.println("-------------------------------");
 			break;
-		}
-		
+		} // Payment Coice
 		System.out.println("=============================");
 	}
 }
