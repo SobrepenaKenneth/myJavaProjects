@@ -92,15 +92,10 @@ public class Main {
 					// A switch would be cleaner if only numeric input was allowed.
 
 					// NOTE: The term "Toll Fee" is used instead of "Ticket Price" because toll
-					// booths
-					// FIXME: (:: A vehicle has pulled up on the booth.) changed to (vehicle
-					// arrived) -ken
-					// FIXME: (Please Identify its type from the codex below.) changed to (Please
-					// select its type below.) -ken
 
 					// ====== Input Validation Loop (For loop) ======
 					System.out.println("=====================================================");
-					System.out.println("[" + (i + 1) + "] Vehicle arrived - Please select its type below.");
+					System.out.println("Vehicle " + (i + 1) + " has arrived. Please select its type below.");
 					System.out.println("=====================================================");
 					System.out.println("Vehicle Type          ||		Toll Fee");
 					System.out.println("-----------------------------------------------------");
