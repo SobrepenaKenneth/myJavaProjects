@@ -90,7 +90,7 @@ public class Main {
 					System.out.print("> Enter vehicle type: ");
 					vehicleType = reader.nextLine();
 
-					// > STEP !@
+					// > STEP 12
 					// ====== DECISION STRUCTURE (If-Else) ======
 					if (vehicleType.toLowerCase().equals("motorcycle") || vehicleType.toLowerCase().equals("motor")
 							|| vehicleType.equals("1")) {
@@ -132,7 +132,8 @@ public class Main {
 					// INPUT DOESN'T MATCH ANY VALID INTAKES.
 					else {
 						System.out.println("-----------------------------------------------------");
-						System.out.println("[" + (i + 1) + "] Input did not match any item in data base.");
+						System.out.println("[" + (vehicleType) + "] No Match Found. Please Try again.");
+						System.out.println("-----------------------------------------------------");
 						// Do not unlock the while loop.
 					}
 					System.out.println();
