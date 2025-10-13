@@ -1,9 +1,19 @@
 import java.util.Scanner;
 
-public class Main {
+public class TollBoothReviewed {
 
 	public static void main(String[] args) {
 		Scanner reader = new Scanner(System.in);
+
+		/*
+		 * > Ken Comment < > variable names changed for readability 1.) instead of
+		 * onDuty use isOnDuty 2.) instead of processingInput use isValidInput 3.)
+		 * instead of turnCount use numberOfVehicles 4.) instead of vehicleName change
+		 * it to vehicleType unless you are asking for the car brand like Honda etc, but
+		 * you are asking for the type right! 5.) i will put some transition comments so
+		 * it will be much readable
+		 */
+
 		// ============================================
 		// VARIABLE DECLARATION
 		// ============================================
@@ -24,37 +34,34 @@ public class Main {
 		int bus = 0;
 		int truck = 0;
 
-		// > STEP 2
 		// ============================================
 		// PROGRAM START
 		// ============================================
+		// > i am changing this -ken
+		// System.out.println("Toll Booth Simulator");
+		// System.out.println("Press <<Enter>> to Begin Shift");
 		System.out.println("=====================================================");
 		System.out.println("             AUTOMATED TOLL BOOTH SIMULATOR          ");
 		System.out.println("=====================================================");
 		System.out.println("Press <Enter> to begin your shift...");
 		reader.nextLine();
 
-		// > STEP 3
 		// ============================================
 		// MAIN PROGRAM LOOP (Do-While)
 		// ============================================
-		// > STEP 4
 		isOnDuty = true;
 		do {
-			// > STEP 5
 			// ====== ASK FOR NUMBER OF VEHICLES ======
 			while (numberOfVehicles == 0) {
 				System.out.println("-----------------------------------------------------");
 				System.out.println("> How many vehicles would you like to process today? ");
 				System.out.print("> ");
 				try {
-					// > STEP 6
 					numberOfVehicles = Integer.parseInt(reader.nextLine());
 					System.out.println("-----------------------------------------------------");
 				} catch (NumberFormatException e) {
 					numberOfVehicles = 0;
 				}
-				// > STEP 7
 				if (numberOfVehicles <= 0) {
 					numberOfVehicles = 0;
 					// Prompt the user to enter a positive vehicle count
@@ -63,18 +70,29 @@ public class Main {
 					reader.nextLine();
 				}
 			}
-			// > STEP 8
+
+			// FIXME: there is no space after this add \n at the end!
+			// System.out.println("> You will be processing " + numberOfVehicles + "
+			// vehicle(s) today.");
 			System.out.println("\n-----------------------------------------------------");
 			System.out.println("> Processing " + numberOfVehicles + " vehicles this round.");
 			System.out.println("-----------------------------------------------------\n");
-			
-			// > STEP 9
+
 			// ====== PROCESS VEHICLES (For loop) ======
 			for (int i = 0; i < numberOfVehicles; i++) {
 				isValidInput = true;
-				// > STEP 10
+
 				// ====== INPUT VALIDATION (While) ======
 				while (isValidInput) {
+
+					// DECISION STRUCTURE:
+					// Using if-else statements instead of a switch because this program accepts
+					// both
+					// numeric inputs (1–4) and text inputs ("car", "bus", etc.).
+					// A switch would be cleaner if only numeric input was allowed.
+
+					// NOTE: The term "Toll Fee" is used instead of "Ticket Price" because toll
+
 					// ====== Input Validation Loop (For loop) ======
 					System.out.println("=====================================================");
 					System.out.println("Vehicle " + (i + 1) + " has arrived. Please select its type below.");
@@ -86,12 +104,12 @@ public class Main {
 					System.out.println("[3] Bus               ||		₱150.00");
 					System.out.println("[4] Truck             ||		₱200.00");
 					System.out.println("-----------------------------------------------------");
-					// > STEP 11
+					// FIXME: Prompt the user instead of just "> "
 					System.out.print("> Enter vehicle type: ");
 					vehicleType = reader.nextLine();
 
-					// > STEP !@
 					// ====== DECISION STRUCTURE (If-Else) ======
+					// Since it's a Toll Booth instead of "Charging ₱50" use "toll fee".
 					if (vehicleType.toLowerCase().equals("motorcycle") || vehicleType.toLowerCase().equals("motor")
 							|| vehicleType.equals("1")) {
 
