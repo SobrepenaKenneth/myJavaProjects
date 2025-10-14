@@ -175,6 +175,7 @@ public class Main {
 			System.out.println("> Congratulations.");
 			System.out.println("> You've finished processing your quota for today.");
 			System.out.println("-----------------------------------------------------");
+			// > STEP 19
 			System.out.println("> Would you like to process another batch of vehicles?");
 			System.out.println("-----------------------------------------------------");
 			System.out.println(">> [1] Start New Batch");
@@ -183,6 +184,7 @@ public class Main {
 			System.out.print("> Enter Choice: ");
 			vehicleType = reader.nextLine();
 
+			// > STEP 20
 			if (vehicleType.equals("1") || vehicleType.toLowerCase().equals("yes")
 					|| vehicleType.toLowerCase().equals("process new batch")) {
 				System.out.println("-----------------------------------------------------");
@@ -198,7 +200,8 @@ public class Main {
 			}
 
 		} while (isOnDuty); // end of main loop
-
+		
+		// STEP 21
 	    // ============================================
         // PROGRAM END
         // ============================================
