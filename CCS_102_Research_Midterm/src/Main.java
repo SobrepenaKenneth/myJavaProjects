@@ -88,9 +88,10 @@ public class Main {
 					System.out.println("-----------------------------------------------------");
 					// > STEP 11
 					System.out.print("> Enter vehicle type: ");
+					// > STEP 12
 					vehicleType = reader.nextLine();
 
-					// > STEP 12
+					// > STEP 13
 					// ====== DECISION STRUCTURE (If-Else) ======
 					if (vehicleType.toLowerCase().equals("motorcycle") || vehicleType.toLowerCase().equals("motor")
 							|| vehicleType.equals("1")) {
@@ -140,12 +141,14 @@ public class Main {
 					;
 				}
 			}
-			// > Step 13
+			// > STEP 13
 			// ====== DISPLAY SHIFT SUMMARY ======
 			System.out.println("=====================================================");
 			System.out.println("                SHIFT SUMMARY REPORT                 ");
 			System.out.println("=====================================================");
+			// > STEP 14
 			System.out.println("Vehicles Processed : " + numberOfVehicles);
+			// > STEP 15
 			System.out.println("-----------------------------------------------------");
 			System.out.println("Vehicle Type      ||      Amount Charged");
 			System.out.println("-----------------------------------------------------");
@@ -154,16 +157,19 @@ public class Main {
 			System.out.println("[•] Bus       	  " + "||		  	₱" + bus);
 			System.out.println("[•] Truck     	  " + "||		  	₱" + truck);
 			System.out.println("-----------------------------------------------------");
+			// > STEP 16
 			System.out.println(">> > Press <<Enter>> to continue < <<");
 			reader.nextLine();
 
+			// > STEP 17
 			// ====== RESET VARIABLES FOR NEXT BATCH ======
 			numberOfVehicles = 0; // Reset the turnCount for the new Batch check.
 			motor = 0;
 			car = 0;
 			bus = 0;
 			truck = 0;
-
+			
+			// > STEP 18
 			// EPILOGUE
 			System.out.println("-----------------------------------------------------");
 			System.out.println("> Congratulations.");
