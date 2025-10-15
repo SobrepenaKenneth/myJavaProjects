@@ -45,7 +45,7 @@ public class Main {
 			// ====== ASK FOR NUMBER OF VEHICLES ======
 			while (numberOfVehicles == 0) {
 				System.out.println("-----------------------------------------------------");
-				System.out.println("> How many vehicles would you like to process today? ");
+				System.out.println("> How many vehicles would you like to process today?");
 				System.out.print("> ");
 				try {
 					// > STEP 6
@@ -62,7 +62,8 @@ public class Main {
 					System.out.println("> Press <<Enter>> to continue <");
 					reader.nextLine();
 				}
-			}
+			}// END OF WHILE LOOP
+			
 			// > STEP 8
 			System.out.println("\n-----------------------------------------------------");
 			System.out.println("> Processing " + numberOfVehicles + " vehicles this round.");
@@ -95,7 +96,6 @@ public class Main {
 					// ====== DECISION STRUCTURE (If-Else) ======
 					if (vehicleType.toLowerCase().equals("motorcycle") || vehicleType.toLowerCase().equals("motor")
 							|| vehicleType.equals("1")) {
-
 						motor += motorCost;
 						System.out.println("-----------------------------------------------------");
 						System.out.println("[" + (i + 1) + "] Vehicle identified as a Motorcycle. Toll Fee ₱" + motorCost);
@@ -104,7 +104,6 @@ public class Main {
 					}
 					// CHECK FOR : CARS
 					else if (vehicleType.toLowerCase().equals("car") || vehicleType.equals("2")) {
-
 						car += carCost;
 						System.out.println("-----------------------------------------------------");
 						System.out.println("[" + (i + 1) + "] Vehicle identified as a Car. Toll Fee ₱" + carCost);
@@ -113,17 +112,14 @@ public class Main {
 					}
 					// CHECK FOR : BUSES
 					else if (vehicleType.toLowerCase().equals("bus") || vehicleType.equals("3")) {
-
 						bus += busCost;
 						System.out.println("-----------------------------------------------------");
 						System.out.println("[" + (i + 1) + "] Vehicle identified as a Bus. Toll Fee ₱" + busCost);
 						System.out.println("-----------------------------------------------------");
 						isValidInput = false; // Unlocks the while loop
 					}
-
 					// CHECK FOR : TRUCKS
 					else if (vehicleType.toLowerCase().equals("truck") || vehicleType.equals("4")) {
-
 						truck += truckCost;
 						System.out.println("-----------------------------------------------------");
 						System.out.println("[" + (i + 1) + "] Vehicle identified as a Truck. Toll Fee ₱" + truckCost);
@@ -138,9 +134,9 @@ public class Main {
 						// Do not unlock the while loop.
 					}
 					System.out.println();
-					;
-				}
-			}
+				}// END OF WHILE LOOP
+			}// END OF FOR LOOP
+			
 			// > STEP 13
 			// ====== DISPLAY SHIFT SUMMARY ======
 			System.out.println("=====================================================");
@@ -196,9 +192,7 @@ public class Main {
 				System.out.println("-----------------------------------------------------");
 				System.out.println("> Terminating Programm...");
 				isOnDuty = false; // Unlock the main-loop
-
 			}
-
 		} while (isOnDuty); // end of main loop
 		
 		// STEP 21

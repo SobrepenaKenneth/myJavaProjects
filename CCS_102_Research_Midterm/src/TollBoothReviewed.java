@@ -33,7 +33,6 @@ public class TollBoothReviewed {
 		int car = 0;
 		int bus = 0;
 		int truck = 0;
-
 		// ============================================
 		// PROGRAM START
 		// ============================================
