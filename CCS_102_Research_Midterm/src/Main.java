@@ -1,22 +1,21 @@
 import java.util.Scanner;
 
 public class Main {
-
 	public static void main(String[] args) {
 		Scanner reader = new Scanner(System.in);
 		// ============================================
 		// VARIABLE DECLARATION
 		// ============================================
-		boolean isOnDuty = false; // Determines if the Game is active
-		boolean isValidInput = true; // Locks and Unlocks the processing loop
+		boolean isOnDuty = false;
+		boolean isValidInput = true; 
 		int numberOfVehicles = 0;
 		String vehicleType;
 
 		// Toll Ticket Prices
-		final int motorCost = 50;
-		final int carCost = 100;
-		final int busCost = 150;
-		final int truckCost = 200;
+		final int MOTOR_COST = 50;
+		final int CAR_COST = 100;
+		final int BUS_COST = 150;
+		final int TRUCK_COST = 200;
 
 		// Charge Tally
 		int motor = 0;
@@ -96,33 +95,33 @@ public class Main {
 					// ====== DECISION STRUCTURE (If-Else) ======
 					if (vehicleType.toLowerCase().equals("motorcycle") || vehicleType.toLowerCase().equals("motor")
 							|| vehicleType.equals("1")) {
-						motor += motorCost;
+						motor += MOTOR_COST;
 						System.out.println("-----------------------------------------------------");
-						System.out.println("[" + (i + 1) + "] Vehicle identified as a Motorcycle. Toll Fee ₱" + motorCost);
+						System.out.println("[" + (i + 1) + "] Vehicle identified as a Motorcycle. Toll Fee ₱" + MOTOR_COST);
 						System.out.println("-----------------------------------------------------");
 						isValidInput = false; // Unlocks the while loop
 					}
 					// CHECK FOR : CARS
 					else if (vehicleType.toLowerCase().equals("car") || vehicleType.equals("2")) {
-						car += carCost;
+						car += CAR_COST;
 						System.out.println("-----------------------------------------------------");
-						System.out.println("[" + (i + 1) + "] Vehicle identified as a Car. Toll Fee ₱" + carCost);
+						System.out.println("[" + (i + 1) + "] Vehicle identified as a Car. Toll Fee ₱" + CAR_COST);
 						System.out.println("-----------------------------------------------------");
 						isValidInput = false; // Unlocks the while loop
 					}
 					// CHECK FOR : BUSES
 					else if (vehicleType.toLowerCase().equals("bus") || vehicleType.equals("3")) {
-						bus += busCost;
+						bus += BUS_COST;
 						System.out.println("-----------------------------------------------------");
-						System.out.println("[" + (i + 1) + "] Vehicle identified as a Bus. Toll Fee ₱" + busCost);
+						System.out.println("[" + (i + 1) + "] Vehicle identified as a Bus. Toll Fee ₱" + BUS_COST);
 						System.out.println("-----------------------------------------------------");
 						isValidInput = false; // Unlocks the while loop
 					}
 					// CHECK FOR : TRUCKS
 					else if (vehicleType.toLowerCase().equals("truck") || vehicleType.equals("4")) {
-						truck += truckCost;
+						truck += TRUCK_COST;
 						System.out.println("-----------------------------------------------------");
-						System.out.println("[" + (i + 1) + "] Vehicle identified as a Truck. Toll Fee ₱" + truckCost);
+						System.out.println("[" + (i + 1) + "] Vehicle identified as a Truck. Toll Fee ₱" + TRUCK_COST);
 						System.out.println("-----------------------------------------------------");
 						isValidInput = false; // Unlocks the while loop
 					}
@@ -137,14 +136,14 @@ public class Main {
 				}// END OF WHILE LOOP
 			}// END OF FOR LOOP
 			
-			// > STEP 13
+			// > STEP 14
 			// ====== DISPLAY SHIFT SUMMARY ======
 			System.out.println("=====================================================");
 			System.out.println("                SHIFT SUMMARY REPORT                 ");
 			System.out.println("=====================================================");
-			// > STEP 14
-			System.out.println("Vehicles Processed : " + numberOfVehicles);
 			// > STEP 15
+			System.out.println("Vehicles Processed : " + numberOfVehicles);
+			// > STEP 16
 			System.out.println("-----------------------------------------------------");
 			System.out.println("Vehicle Type      ||      Amount Charged");
 			System.out.println("-----------------------------------------------------");
@@ -153,11 +152,11 @@ public class Main {
 			System.out.println("[•] Bus       	  " + "||		  	₱" + bus);
 			System.out.println("[•] Truck     	  " + "||		  	₱" + truck);
 			System.out.println("-----------------------------------------------------");
-			// > STEP 16
+			// > STEP 17
 			System.out.println(">> > Press <<Enter>> to continue < <<");
 			reader.nextLine();
 
-			// > STEP 17
+			// > STEP 18
 			// ====== RESET VARIABLES FOR NEXT BATCH ======
 			numberOfVehicles = 0; // Reset the turnCount for the new Batch check.
 			motor = 0;
@@ -165,13 +164,13 @@ public class Main {
 			bus = 0;
 			truck = 0;
 			
-			// > STEP 18
+			// > STEP 19
 			// EPILOGUE
 			System.out.println("-----------------------------------------------------");
 			System.out.println("> Congratulations.");
 			System.out.println("> You've finished processing your quota for today.");
 			System.out.println("-----------------------------------------------------");
-			// > STEP 19
+			// > STEP 20
 			System.out.println("> Would you like to process another batch of vehicles?");
 			System.out.println("-----------------------------------------------------");
 			System.out.println(">> [1] Start New Batch");
@@ -180,7 +179,7 @@ public class Main {
 			System.out.print("> Enter Choice: ");
 			vehicleType = reader.nextLine();
 
-			// > STEP 20
+			// > STEP 21
 			if (vehicleType.equals("1") || vehicleType.toLowerCase().equals("yes")
 					|| vehicleType.toLowerCase().equals("process new batch")) {
 				System.out.println("-----------------------------------------------------");
@@ -190,12 +189,12 @@ public class Main {
 			} else if (vehicleType.equals("2") || vehicleType.toLowerCase().equals("no")
 					|| vehicleType.toLowerCase().equals("resign")) {
 				System.out.println("-----------------------------------------------------");
-				System.out.println("> Terminating Programm...");
+				System.out.println("> Terminating Program...");
 				isOnDuty = false; // Unlock the main-loop
 			}
 		} while (isOnDuty); // end of main loop
 		
-		// STEP 21
+		// STEP 22
 	    // ============================================
         // PROGRAM END
         // ============================================
