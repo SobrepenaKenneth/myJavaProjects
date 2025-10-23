@@ -8,6 +8,9 @@ public class Arrays {
 	
 	// Multi-Dimensional
 	public static void main(String[] args) {
+		System.out.println("==========================");
+		System.out.println("  XX | TIC TAC TOE | OO ");
+		System.out.println("==========================");
 		char[][] board = {
 				{' ', ' ', ' '},
 				{' ', ' ', ' '},
