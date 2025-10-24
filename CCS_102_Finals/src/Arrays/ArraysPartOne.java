@@ -1,0 +1,56 @@
+package Arrays;
+
+public class ArraysPartOne {
+	public static void main(String[] args) {
+		// ===== ARRAYS =====
+		// is a data structure used to store multiple variable
+		// Finals [24/10/2007] lecture
+		String[] cars = {"Volvo", "BMW", "Ford", "Mazda"};// String 
+		int[] numbers = {1,2,3,4,5};// Integer
+		
+		// access the elements
+		System.out.println(cars[1] + ", " + cars[3]);
+		System.out.println(numbers[2]);
+		
+		// change the value of array
+		System.out.println("BEFORE: " + cars[0]);
+		cars[0] = "Honda";
+		System.out.println("AFTER: " + cars[0]);
+		cars[0] = cars[3];
+		System.out.println("INDEX[0]: " + cars[0]);
+		System.out.println("INDEX[3]: " + cars[3]);
+		
+		// lenght of an array
+		System.out.println("Size of cars array: " +  cars.length);
+		System.out.println("Size of numbers array: " +  cars.length);
+		
+		// defining empty array & filling values
+		String[] softdrinks = new String[4];
+		softdrinks[0] = "Coke";
+		softdrinks[1] = "Sprite";
+		softdrinks[2] = "Pepsi";
+		softdrinks[3] = "Cobra";
+		System.out.println(softdrinks[0]);
+		
+		// defining empty array
+		String[] student = new String[4];// size
+//		System.out.println(names[0]);// null
+		
+		// Loop through array
+		student[0] = "Kenneth";
+		student[1] = "Goku";
+		student[2] = "Vegeta";
+		student[3] = "Gohan";
+		
+		for (int index = 0; index < student.length; index++) {
+			System.out.println("|" + index + "| = " + student[index]);
+		}
+		
+		for (int index = 0; index < cars.length; index++) {
+			if (cars[index] != null) {
+				System.out.println("|" + index + "| = " + cars[index]);
+			}
+		}
+		
+	}// main method
+}// Main class
