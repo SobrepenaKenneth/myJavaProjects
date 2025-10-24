@@ -9,20 +9,6 @@ public class Activity {
 	
 	public static void main(String[] args) {
 		askTheUser();
-		switch (input) {
-			case 1 :
-				findTheHighest();
-				break;
-			case 2 :
-				findTheLowest();
-				break;
-			case 3 :
-				findBoth();
-				break;
-			case 4:
-				endProgram();
-				break;
-		}
 	}// main method
 	
 	public static void askTheUser() {
@@ -36,6 +22,21 @@ public class Activity {
 			System.out.print("Enter your choice: ");
 			input = scan.nextInt();
 		} while (input < 0 || input > 4);
+		
+		switch (input) {
+		case 1 :
+			findTheHighest();
+			break;
+		case 2 :
+			findTheLowest();
+			break;
+		case 3 :
+			findBoth();
+			break;
+		case 4:
+			endProgram();
+			break;
+	}
 	}// end of askTheUser method
 	
 	public static void findTheHighest() {
@@ -126,6 +127,7 @@ public class Activity {
 		for (int index = 0; index < number.length; index++) {
 			number[index] = scan.nextInt();
 		}
+		
 		int lowest = number[0];
 		int highest = number[0];
 		
