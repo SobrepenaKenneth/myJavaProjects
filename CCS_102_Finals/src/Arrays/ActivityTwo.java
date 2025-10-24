@@ -40,5 +40,19 @@ public class ActivityTwo {
 				System.out.println(number[index] + " is ODD");
 			}
 		}
+		
+		System.out.println("Even Numbers: ");
+		for (int i = 0; i < number.length; i++) {
+			if(number[i] % 2 == 0) {
+				System.out.print(number[i] + ", ");
+			}
+			System.out.println();
+		}
+		System.out.println("Odd Numbers: ");
+		for (int k = 0; k < number.length; k++) {
+			if(number[k] % 2 != 0) {
+				System.out.print(number[k] + ", ");
+			}
+		}
 	}
 }
