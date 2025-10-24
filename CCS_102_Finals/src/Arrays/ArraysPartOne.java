@@ -7,6 +7,7 @@ public class ArraysPartOne {
 		// Finals [24/10/2007] lecture
 		String[] cars = {"Volvo", "BMW", "Ford", "Mazda"};// String 
 		int[] numbers = {1,2,3,4,5};// Integer
+		int sum = 0;
 		
 		// access the elements
 		System.out.println(cars[1] + ", " + cars[3]);
@@ -46,11 +47,33 @@ public class ArraysPartOne {
 			System.out.println("|" + index + "| = " + student[index]);
 		}
 		
+		System.out.println();
+		
+		// reverse
+		for (int index = student.length - 1; index >= 0; index--) {
+			System.out.println("|" + index + "| = " + student[index]);
+		}
+		
+		System.out.println();
+		
 		for (int index = 0; index < cars.length; index++) {
 			if (cars[index] != null) {
 				System.out.println("|" + index + "| = " + cars[index]);
 			}
 		}
+		
+		System.out.println();
+		
+		for (int index = 0; index < numbers.length; index++) {
+			sum += numbers[index];
+		}
+		System.out.println("Sum: " + sum);
+		/**0 + 1 = 1
+		 * 1 + 2 = 3
+		 * 3 + 3 = 6
+		 * 6 + 4 = 10
+		 * 10 + 5 = 15
+		 * */
 		
 	}// main method
 }// Main class
