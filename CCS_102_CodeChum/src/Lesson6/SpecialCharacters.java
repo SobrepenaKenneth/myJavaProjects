@@ -27,6 +27,6 @@ public class SpecialCharacters {
 		if (!Character.isDigit(inputChar) && !Character.isLetter(inputChar)) {
 			System.out.println("Character is a special character.");
 		}
-
+		scan.close();
 	}
 }

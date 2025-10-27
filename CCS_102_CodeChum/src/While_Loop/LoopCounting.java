@@ -1,4 +1,4 @@
-package Lesson7;
+package While_Loop;
 
 import java.util.Scanner;
 
@@ -20,6 +20,6 @@ public class LoopCounting {
 			counter++;
 			System.out.println(counter);
 		}
-
+		scan.close();
 	}
 }

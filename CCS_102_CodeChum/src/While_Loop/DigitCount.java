@@ -1,4 +1,4 @@
-package Lesson7;
+package While_Loop;
 
 import java.util.Scanner;
 
@@ -25,5 +25,6 @@ public class DigitCount {
 			}
 		}
 		System.out.println("Number of digits: " + count);
+		scan.close();
 	}
 }

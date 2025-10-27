@@ -1,4 +1,4 @@
-package Lesson7;
+package While_Loop;
 
 import java.util.Scanner;
 
@@ -24,6 +24,6 @@ public class EvenNumberCounter {
 			}
 			counter++;
 		}
-
+		scan.close();
 	}
 }

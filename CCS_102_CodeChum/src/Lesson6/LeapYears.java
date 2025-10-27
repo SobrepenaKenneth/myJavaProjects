@@ -36,6 +36,7 @@ public class LeapYears {
 		if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
 			System.out.println("Year is a leap year.");
 		}
+		scan.close();
 
 	}
 }

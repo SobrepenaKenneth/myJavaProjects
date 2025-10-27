@@ -31,6 +31,7 @@ public class Equality {
 		if (x == y) {
 			System.out.println("Numbers are equal.");
 		}
+		scan.close();
 
 	}
 
