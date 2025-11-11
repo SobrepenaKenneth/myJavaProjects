@@ -20,8 +20,8 @@ public class Main {
 			} else {
 				System.out.println("The number is not a palindrome");
 			}
+			scan.close();
 		}
-
 	}
 
 }

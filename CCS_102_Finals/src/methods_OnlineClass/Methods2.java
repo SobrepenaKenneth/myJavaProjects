@@ -10,7 +10,7 @@ public class Methods2 {
 	public static int getInput() {
 		Scanner scan = new Scanner(System.in);
 		int num;
-		
+		scan.close();
 		// INPUT
 		System.out.print("Enter a number: ");
 		num = scan.nextInt();

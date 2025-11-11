@@ -62,6 +62,7 @@ public class Methods {
 		sum = num1 + num2;
 		// OUTPUT
 		System.out.println("The sum is " + sum);
+		scan.close();
 	}// end of computeSum()
 	
 	// w/o Parameter, w/Return Value
