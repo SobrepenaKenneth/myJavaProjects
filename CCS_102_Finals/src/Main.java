@@ -7,17 +7,15 @@ public class Main {
 	static String[][] items = new String[10][4]; // 0 - ID, 1 - Name, 2 - Price, 3 - Quantity
 
 	static int usedSlots = 0;
-
 	static boolean seeList = true;
-
 	static int totalCosts = 0;
 
 	public static void main(String[] args) {
 		inititalizeDummyData();
 		if (authenticateUser()) {
 			showMainMenu();
-		}
-	}
+		}//End of if
+	}// End of main() method
 
 	// Main menu
 	private static void showMainMenu() {
@@ -49,14 +47,14 @@ public class Main {
 				break;
 			default:
 				System.out.println("Invalid option! Please choose 1-4.");
-			}
-		}
-	}
+			}// End of switch
+		}// End of while loop
+	}// End of showMainMenu() Method
 
+	// Confirmation for Exit
 	private static boolean confirmExit() {
 		System.out.print("Are you sure you want to exit? (yes/no): ");
 		String confirmation = scanner.nextLine().toLowerCase();
-
 		switch (confirmation) {
 		case "yes":
 			return true;
@@ -65,16 +63,17 @@ public class Main {
 		default:
 			System.out.println("Invalid input. Returning to menu...");
 			return false;
-		}
-	}
+		}// End of switch
+	}// End of confirmExit() method
 
+	// method that initializes dump data
 	public static void inititalizeDummyData() {
 		addProductToArray("P001", "Laptop", "999.99", "10");
 		addProductToArray("P002", "Mouse", "25.50", "50");
 		addProductToArray("P003", "Keyboard", "45.75", "30");
 		addProductToArray("P004", "Monitor", "199.99", "15");
 		addProductToArray("P005", "Headphones", "79.99", "25");
-	}
+	}// End of initializeDummyData() method
 
 	// Add product to array
 	private static boolean addProductToArray(String id, String name, String price, String quantity) {
@@ -170,11 +169,8 @@ public class Main {
 		for (int l = 0; l <= 3; l++) {
 			validIn = false;
 			validation: while (!validIn) { // Labels the loop.
-
 				System.out.print("Set Product " + inputs[l] + ": ");
-
 				input = scanner.nextLine();
-
 				if (input.length() < 1) {
 					System.out.println("Invalid input for Product " + inputs[l] + ", please try again.");
 					continue validation;
@@ -190,7 +186,6 @@ public class Main {
 				}
 				items[usedSlots][l] = input;
 				validIn = true;
-
 			}
 		}
 
@@ -325,7 +320,6 @@ public class Main {
 						for (int space = 1; space <= 16 - item.length(); space++) { // e2 start
 							System.out.print(" ");
 						} // e2 loop end
-
 					} // column loop end
 					System.out.println();
 				}
