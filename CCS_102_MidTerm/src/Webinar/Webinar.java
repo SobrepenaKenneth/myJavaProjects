@@ -41,7 +41,15 @@ public class Webinar {
 			}
 			System.out.println();
 		}
-
+		
+		System.out.println("== Inverse Right Angle Triangle ==");
+		for (int row = 5; row >= 1; row--) {
+            for (int col = 1; col <= row; col++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+		
 		System.out.println("== Right Angle Triangle Alternating Pattern ==");
 		for (int row = 1; row <= 5; row++) {
 			for (int col = 1; col <= row; col++) {
@@ -50,14 +58,6 @@ public class Webinar {
 				} else {
 					System.out.print("* ");
 				}
-			}
-			System.out.println();
-		}
-
-		System.out.println("== Inverted Right Angle Triangle ==");
-		for (int row = 5; row >= 1; row--) {
-			for (int col = 1; col <= row; col++) {
-				System.out.print("* ");
 			}
 			System.out.println();
 		}
@@ -142,6 +142,18 @@ public class Webinar {
 				}
 			}
 			System.out.println("");
+		}
+		
+		System.out.println("== Cross Pattern ==");
+		for (int row = 1; row <= 5; row++) {
+			for (int col = 1; col <= 5; col++) {
+				if (row == col || row + col == 5 + 1) {
+					System.out.print("* ");
+				} else {
+					System.out.print("  ");
+				}
+			}
+			System.out.println();
 		}
 	}
 }
