@@ -12,7 +12,7 @@ public class Webinar {
 				System.out.println("Row = " + row + ", Column = " + col);
 			}
 		}
-		
+
 		System.out.println("== Number Pattern ==");
 		// Outer loop
 		for (int row = 1; row <= 4; row++) {
@@ -22,7 +22,7 @@ public class Webinar {
 			}
 			System.out.println();
 		}
-		
+
 		System.out.println("== Multiplication Table ==");
 		// Outer loop
 		for (int num1 = 1; num1 <= 3; num1++) {
@@ -33,7 +33,7 @@ public class Webinar {
 			}
 			System.out.println();
 		}
-		
+
 		System.out.println("== Right Angle Triangle ==");
 		for (int row = 1; row <= 5; row++) {
 			for (int col = 1; col <= row; col++) {
@@ -41,7 +41,7 @@ public class Webinar {
 			}
 			System.out.println();
 		}
-		
+
 		System.out.println("== Right Angle Triangle Alternating Pattern ==");
 		for (int row = 1; row <= 5; row++) {
 			for (int col = 1; col <= row; col++) {
@@ -53,7 +53,7 @@ public class Webinar {
 			}
 			System.out.println();
 		}
-		
+
 		System.out.println("== Inverted Right Angle Triangle ==");
 		for (int row = 5; row >= 1; row--) {
 			for (int col = 1; col <= row; col++) {
@@ -61,16 +61,43 @@ public class Webinar {
 			}
 			System.out.println();
 		}
-		
+
 		System.out.println("== Pyramid Pattern ==");
 		for (int row = 1; row <= 5; row++) {
-			
+
 			for (int space = 1; space <= 5 - row; space++) {
 				System.out.print("  ");
 			}
-			
+
 			for (int col = 1; col <= (2 * row - 1); col++) {
 				System.out.print("* ");
+			}
+			System.out.println();
+		}
+		
+		System.out.println("== Pyramid Pattern ==");
+		int size = 5;
+		for (int outer = 1; outer <= size; outer++) {
+			for (int inner = outer; inner <= size; inner++) {
+				System.out.print("  ");
+			}
+			for (int inner = 1; inner < outer; inner++) {
+				System.out.print("* ");
+			}
+			for (int inner = 1; inner <= outer; inner++) {
+				System.out.print("* ");
+			}
+			System.out.println();
+		}
+		
+		System.out.println("== Hollow Square ==");
+		for (int row = 1; row <= size; row++) {
+			for (int col = 1; col <= size; col++) {
+				if (row == 1 || row == size || col == 1 || col == size) {
+					System.out.print("* ");
+				} else {
+					System.out.print("  ");
+				}
 			}
 			System.out.println();
 		}
