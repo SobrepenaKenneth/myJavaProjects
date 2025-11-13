@@ -74,7 +74,7 @@ public class Webinar {
 			}
 			System.out.println();
 		}
-		
+
 		System.out.println("== Pyramid Pattern ==");
 		int size = 5;
 		for (int outer = 1; outer <= size; outer++) {
@@ -89,7 +89,7 @@ public class Webinar {
 			}
 			System.out.println();
 		}
-		
+
 		System.out.println("== Hollow Square ==");
 		for (int row = 1; row <= size; row++) {
 			for (int col = 1; col <= size; col++) {
@@ -100,6 +100,48 @@ public class Webinar {
 				}
 			}
 			System.out.println();
+		}
+
+		System.out.println("== Hollow Pyramid ==");
+		// Outer loop
+		for (int row = 1; row <= 5; row++) {
+			// spacing
+			for (int space = 1; space <= 5 - row; space++) {
+				System.out.print("  ");
+			}
+			// stars
+			for (int col = 1; col <= (2 * row - 1); col++) {
+				if (row == 5 || col == 1 || col == (2 * row - 1)) {
+					System.out.print("* ");
+				} else {
+					System.out.print("  ");
+				}
+			}
+			System.out.println();
+		}
+
+		System.out.println("== Hollow Triangle ==");
+		int strL = 5;
+		for (int write = 0; write <= strL; write++) {
+			for (int s = strL; s >= write; s--) {
+				System.out.print(" ");
+			}
+			for (int o = 1; o <= write; o++) {
+				if (o == 1 || write == strL) {
+					System.out.print("*");
+				} else {
+					System.out.print(" ");
+				}
+			}
+			// 2nd Part
+			for (int o = 0; o <= write; o++) {
+				if (o == write || write == strL) {
+					System.out.print("*");
+				} else {
+					System.out.print(" ");
+				}
+			}
+			System.out.println("");
 		}
 	}
 }
