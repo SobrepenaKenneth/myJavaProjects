@@ -9,13 +9,6 @@ import java.util.Scanner;
  * buildings using 2D arrays for data storage and processing. It provides
  * analytical insights into resource usage patterns and identifies inefficiencies.
  * 
- * Technical Implementation:
- * - Uses only arrays (no ArrayList or external data structures)
- * - Implements static methods for modularity
- * - Consistent method decomposition and parameter passing
- * - Comprehensive input validation and output formatting
- * - Includes 7 required user-defined methods
- * 
  * @author GlobalTech Institute
  * @version 27.1
  */
@@ -66,7 +59,7 @@ public class TrackerSeven {
      */
     public static void inputData() {
         displaySectionHeader("DATA INPUT");
-        System.out.println(">>> Tip: Enter 'back' at any time to return to menu.");
+//        System.out.println(">>> Tip: Enter 'back' at any time to return to menu.");
         
         while (true) {
             int buildingIndex = getBuildingSelectionFromUser();
