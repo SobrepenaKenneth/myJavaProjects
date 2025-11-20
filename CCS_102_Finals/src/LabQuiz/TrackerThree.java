@@ -9,12 +9,9 @@ import java.util.Scanner;
  * buildings using 2D arrays for data storage and processing. It provides
  * analytical insights into resource usage patterns and identifies
  * inefficiencies.
- *
- * Revision Notes: - Revised code and added comments (by ken) - Fixed bugs and
- * added required methods/wrappers
- *
+ * 
  * @author GlobalTech Institute
- * @version 26.1
+ * @version 27.1
  */
 public class TrackerThree {
     // Scanner for user input throughout the program
@@ -476,8 +473,8 @@ public class TrackerThree {
 
     private static void printWelcomeBanner() {
         System.out.println("==============================================================");
-        System.out.println("               SMART CAMPUS RESOURCE TRACKER               ");
-        System.out.println("           Optimizing Campus Resource Efficiency            ");
+        System.out.println("               SMART CAMPUS RESOURCE TRACKER                  ");
+        System.out.println("           Optimizing Campus Resource Efficiency              ");
         System.out.println("==============================================================");
         System.out.println();
     }
