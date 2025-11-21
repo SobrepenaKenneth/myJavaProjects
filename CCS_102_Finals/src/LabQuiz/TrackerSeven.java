@@ -87,7 +87,10 @@ public class TrackerSeven {
         System.out.printf("%-18s%-18s\n", dailyData[0][dailyTotalsCol], dailyData[0][dailyAveragesCol]);
         
         // Print separator line
-        System.out.println("=".repeat(18 * dailyData[0].length));
+        for (int i = 0; i < 18 * dailyData[0].length; i++) {
+            System.out.print("=");
+        }
+        System.out.println();
         
         // Print data rows
         for (int rowIndex = 1; rowIndex < dailyData.length; rowIndex++) {
