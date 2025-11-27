@@ -2,7 +2,7 @@ package FinalResearch;
 
 import java.util.Scanner;
 
-//CSS102 Finals Project - Code v3.6
+//CSS102 Finals Project - Code v4.1
 
 public class Main {
 	static Scanner scanner = new Scanner(System.in);
@@ -29,14 +29,14 @@ public class Main {
 					showProductManagementMenu();
 			}
 		}
-	}
+	}// End of main()
 
 	public static boolean authenticateUser() {
 
 		final String DEFAULT_USERNAME = "admin";
 		final String DEFAULT_PASSWORD = "admin";
 
-		System.out.println("=== INVENTORY PRODUCT MANAGEMENT SYSTEM v3.6 ===");
+		System.out.println("=== INVENTORY PRODUCT MANAGEMENT SYSTEM v4.1 ===");
 		System.out.println("Please log in to continue:");
 
 		int attempts = 3;
@@ -59,10 +59,10 @@ public class Main {
 			}
 		}
 		return false;
-	}
+	}// End of authenticateUser() 
 
 	// Main menu
-	private static void showMainMenu() {
+	public static void showMainMenu() {
 		System.out.println("\n=== MAIN MENU ===");
 		System.out.println("[1] Product Management");
 		System.out.println("[2] Sales Transaction");
@@ -100,10 +100,9 @@ public class Main {
 			System.out.println("Invalid option! Please choose 1-4.");
 			break;
 		}
+	}// End of showMainMenu()
 
-	}
-
-	private static boolean confirmExit() {
+	public static boolean confirmExit() {
 		System.out.print("Are you sure you want to exit? (yes/no): ");
 		String confirmation = scanner.nextLine().toLowerCase();
 
@@ -116,7 +115,7 @@ public class Main {
 			System.out.println("Invalid input. Returning to menu...");
 			return false;
 		}
-	}
+	}// End of confirmExit
 
 	// XXX: PRODUCT MANAGEMENT MENU
 	public static void showProductManagementMenu() {
@@ -152,8 +151,7 @@ public class Main {
 		default:
 			System.out.println("Invalid option! Please choose 1-5.");
 		}
-
-	}
+	}// End of showProductManagementMenu()
 
 	public static void CreateItem() {
 		if (usedSlots >= 10) {
@@ -234,7 +232,7 @@ public class Main {
 		System.out.println("Product Quantity: " + items[usedSlots][3]);
 		System.out.println("----------------------------------------------------------------");
 		usedSlots++;
-	}
+	}// End of CreateItem()
 
 	public static void ModifyItem() {
 		if (usedSlots <= 0) {
@@ -309,7 +307,7 @@ public class Main {
 
 		if (noMatch)
 			System.out.println("No Matching Product Entry was found.");
-	}
+	}// End of ModifyItem()
 
 	public static void DeleteItem() {
 		if (usedSlots <= 0) {
@@ -360,7 +358,7 @@ public class Main {
 			System.out.println("No Matching Product Entry was found.");
 
 		return;
-	}
+	}// End of DeleteItem()
 
 	public static void SeeList() {
 		if (usedSlots <= 0) {
@@ -414,7 +412,7 @@ public class Main {
 		}
 		System.out.println("-----------------------------------------------------------------------");
 		System.out.println("");
-	}
+	}// End of SeeList() 
 
 	public static void TransactionHistory() {
 		if (transactionsMade <= 0) {
@@ -442,9 +440,8 @@ public class Main {
 			}
 			System.out.println("----------------------------------------------------------------");
 			System.out.println("");
-
 		}
-	}
+	}// End of TransactionHistory()
 
 	public static void performSalesTransaction() {
 		if (usedSlots <= 0) {
@@ -530,9 +527,9 @@ public class Main {
 		if (noMatch) {
 			System.out.println("No Product Found Matching the Provided ID.");
 		}
-	}
+	}// End of performSalesTransaction()
 
-	private static boolean confirmDummyData() {
+	public static boolean confirmDummyData() {
 		System.out.print("Are you sure you want to create dummy data?\n"
 				+ " This will attempt to fill the database with test entries.\n"
 				+ "  <!> Won't overwrite Product Entries\n" + "  <!> Will overwrite Transaction History\n"
@@ -548,7 +545,7 @@ public class Main {
 			System.out.println("Invalid input. Returning to menu...");
 			return false;
 		}
-	}
+	}// End of confirmDummyData()
 
 	public static void inititalizeDummyData() {
 		// Product Dummies
@@ -576,10 +573,10 @@ public class Main {
 		addTransactionToArray("TR09", "P001", "10", "9990.0");
 		System.out.println("Debug Data added to relevant arrays.");
 		// Should overwrite TR00
-	}
+	}// End of inititalizeDummyData()
 
 	// XXX: This is a Debug Method. It does not need to be added to the Algorithm
-	private static boolean addProductToArray(String id, String name, String price, String quantity) {
+	public static boolean addProductToArray(String id, String name, String price, String quantity) {
 		if (usedSlots >= items.length) {
 			return false;
 		}
@@ -597,9 +594,9 @@ public class Main {
 		items[usedSlots][3] = quantity;
 		usedSlots++;
 		return true;
-	}
+	}// End of addProductToArray()
 
-	private static boolean addTransactionToArray(String id, String proID, String amount, String sales) {
+	public static boolean addTransactionToArray(String id, String proID, String amount, String sales) {
 		if (CurrentTransactionSlot >= transactions.length) {
 			return false;
 		}
@@ -615,5 +612,4 @@ public class Main {
 		transactionsMade++;
 		return true;
 	}
-
-}
+}// End of addTransactionToArray()
