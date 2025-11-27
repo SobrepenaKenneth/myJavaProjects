@@ -70,7 +70,7 @@ public class Main {
 		System.out.println("[4] Exit System");
 		System.out.println("-------------------------");
 		System.out.println("[5] Initialize Dummy Data(DEBUG)");
-		System.out.print("Choose an option (1-4): ");
+		System.out.print("Choose an option (1-5): ");
 
 		String choice = scanner.nextLine();
 
@@ -161,64 +161,79 @@ public class Main {
 			return;
 		}
 
-		String[] inputTypes = { "ID", "Name", "Price", "Quantity" }; // Local array, dictates what is displayed when
-																		// asking for input
+		String[] inputTypes = { "ID", "Name", "Price", "Quantity" };
 		String input = null;
-		boolean validIn = false;
-		for (int l = 0; l <= 3; l++) { // 4 iterations: 0, 1, 2, 3
-			validIn = false;
-			while (!validIn) { // Labels the loop.
 
+		for (int l = 0; l <= 3; l++) {
+			boolean validIn = false;
+			while (!validIn) {
 				System.out.print("Set Product " + inputTypes[l] + ": ");
-
 				input = scanner.nextLine();
 
+				// Check for empty input
 				if (input.length() < 1) {
-					System.out.println("Invalid input for Product " + inputTypes[l] + ", please try again.");
+					System.out.println("Input cannot be empty. Please try again.");
 					continue;
 				}
-				if (l == 0) { // Only checks for ID
+
+				// ID Validation (Must be unique)
+				if (l == 0) {
+					boolean duplicateFound = false;
 					for (int e = 0; e < usedSlots; e++) {
 						if (input.equals(items[e][0])) {
-							System.out.println(
-									"There is already an Entry with ID '" + input + "', unable to complete action.");
-							continue;
+							System.out.println("ID '" + input + "' already exists. Please use a unique ID.");
+							duplicateFound = true;
+							break;
 						}
 					}
+					if (duplicateFound)
+						continue;
 				}
-				// Only checks for Price and Quantity
-				if (l >= 2) {
-					double valueContainer;
+
+				// Price Validation (Must be a valid number, e.g., 10.50)
+				if (l == 2) {
 					try {
-						valueContainer = Double.parseDouble(input);
-
+						double priceCheck = Double.parseDouble(input);
+						if (priceCheck < 0) {
+							System.out.println("Price cannot be negative.");
+							continue;
+						}
 					} catch (NumberFormatException e) {
-						System.out.println("Invalid input for Product " + inputTypes[l] + ", please try again.");
+						System.out.println("Invalid Price. Please enter a number (e.g., 99.99).");
 						continue;
 					}
-
-					if (valueContainer < 0) {
-						System.out.println("Invalid input for Product " + inputTypes[l] + ", please try again.");
-						continue;
-					}
-
 				}
+
+				// Quantity Validation (Must be a WHOLE number, e.g., 10)
+				// <!> This prevents the crash in Sales Transaction <!>
+				if (l == 3) {
+					try {
+						int qtyCheck = Integer.parseInt(input);
+						if (qtyCheck < 0) {
+							System.out.println("Quantity cannot be negative.");
+							continue;
+						}
+					} catch (NumberFormatException e) {
+						System.out.println("Invalid Quantity. Please enter a whole number (no decimals).");
+						continue;
+					}
+				}
+
+				// If all checks pass:
 				items[usedSlots][l] = input;
 				validIn = true;
-
 			}
 		}
 
 		System.out.println("----------------------------------------------------------------");
-		System.out.println("");
 		System.out.println("ITEM CREATION SUCCESSFUL");
-		System.out.println("Product ID: " + items[usedSlots][0] + "\nProduct Name: " + items[usedSlots][1]
-				+ "\nProduct Price: " + items[usedSlots][2] + "\nProduct Quantity: " + items[usedSlots][3]);
-		System.out.println("");
+		// Adjusted to match your spacing style slightly
+		System.out.println("Product ID:       " + items[usedSlots][0]);
+		System.out.println("Product Name:     " + items[usedSlots][1]);
+		System.out.println("Product Price:    " + items[usedSlots][2]);
+		System.out.println("Product Quantity: " + items[usedSlots][3]);
 		System.out.println("----------------------------------------------------------------");
 		usedSlots++;
-
-		return;
 	}
 
 	public static void ModifyItem() {
@@ -228,10 +243,10 @@ public class Main {
 		}
 		SeeList();
 		System.out.print("Please Input the ID of the Product you'd like to modify: ");
-		boolean noMatch = true;
 		String userInput = scanner.nextLine();
+		boolean noMatch = true;
 
-		for (int i = 0; i < items.length; i++) {
+		for (int i = 0; i < usedSlots; i++) { // Using usedSlots is safer/faster than items.length
 
 			if (userInput.equals(items[i][0])) {
 				noMatch = false;
@@ -243,60 +258,55 @@ public class Main {
 
 				case "1":
 					// Item Name Modification
-					System.out.println("Set New Product Name: ");
+					System.out.print("Set New Product Name: ");
 					String newName = scanner.nextLine();
 					items[i][1] = newName;
 					System.out.println("Product '" + items[i][0] + "' Name successfully changed!");
-
 					break;
+
 				case "2":
 					// Item Price Modification
-					double newPrice = 0;
+					double newPrice = -1; // Start at -1 to force the loop to run
 					while (newPrice < 0) {
-						System.out.println("Set New Product Price: ");
+						System.out.print("Set New Product Price: ");
 						try {
 							newPrice = Double.parseDouble(scanner.nextLine());
+							if (newPrice < 0) System.out.println("Price cannot be negative.");
 						} catch (NumberFormatException e) {
-							System.out.println("Input is not a valid value for this column.");
-							newPrice = 0;
+							System.out.println("Invalid input. Please enter a valid price.");
+							newPrice = -1;
 						}
-
 					}
-
 					items[i][2] = Double.toString(newPrice);
 					System.out.println("Product '" + items[i][0] + "' Price successfully changed!");
 					break;
 
 				case "3":
 					// Item Stock Modification
-					int newAmount = 0;
-					while (newAmount <= 0) {
-						System.out.println("Set New Available Stock Quantity: ");
+					int newAmount = -1; // Start at -1 to force the loop to run
+					while (newAmount < 0) {
+						System.out.print("Set New Available Stock Quantity: ");
 						try {
 							newAmount = Integer.parseInt(scanner.nextLine());
+							if (newAmount < 0) System.out.println("Stock cannot be negative.");
 						} catch (NumberFormatException e) {
-							System.out.println("Input is not a valid value for this column.");
-							newAmount = 0;
+							System.out.println("Invalid input. Please enter a whole number.");
+							newAmount = -1;
 						}
-
 					}
-
 					items[i][3] = Integer.toString(newAmount);
 					System.out.println("Product '" + items[i][0] + "' Stock successfully changed!");
 					break;
 
 				default:
-					// No Match
-					System.out.println("Invalid Input");
-				} // switch closing
-				break; // Closes for loop early if match is found
+					System.out.println("Invalid Option");
+				}
+				break; // Stop looking after finding the product
 			}
-		} // For loop closing
-			// Only reached if loop
+		}
+		
 		if (noMatch)
 			System.out.println("No Matching Product Entry was found.");
-
-		return;
 	}
 
 	public static void DeleteItem() {
@@ -353,7 +363,7 @@ public class Main {
 		System.out.println("+------------------+-------------+---------------+---------------+");
 		System.out.println("|    Product ID    |    Name     |     Price     |    Quantity   |");
 		System.out.println("+------------------+-------------+---------------+---------------+");
-		for (int i = 0; i < items.length; i++) {
+		for (int i = 0; i < usedSlots; i++) {
 
 			String index = items[i][0];
 			if (index != null) {
@@ -417,22 +427,28 @@ public class Main {
 
 	public static void performSalesTransaction() {
 		if (usedSlots <= 0) {
-			// DISPLAY
-			System.out.println();
-			System.out.println("Product List is Empty!");
+			System.out.println("\nProduct List is Empty!");
 			return;
 		}
-		SeeList(); // This executes the List Method which displays the Product List
-		System.out.println("Transaction - Input Product ID : ");
-		boolean noMatch = true;
+		SeeList(); 
+		System.out.print("Transaction - Input Product ID : ");
 		String userInput = scanner.nextLine();
+		boolean noMatch = true;
 
-		for (int i = 0; i < items.length; i++) {
+		for (int i = 0; i < usedSlots; i++) { // usedSlots is more accurate than items.length
 
 			if (userInput.equals(items[i][0])) {
 				noMatch = false;
-				// DISPLAY
-				int productStock = Integer.parseInt(items[i][3]);
+				
+				// Safely parse the current stock
+				int productStock = 0;
+				try {
+					productStock = Integer.parseInt(items[i][3]);
+				} catch (NumberFormatException e) {
+					System.out.println("Error: Stock data is corrupted (not a whole number).");
+					return;
+				}
+
 				System.out.println("Product Match Found");
 				System.out.println("Available Stock: " + productStock);
 
@@ -442,55 +458,57 @@ public class Main {
 				while (!valid) {
 					try {
 						input = Integer.parseInt(scanner.nextLine());
-						valid = true;
+						if (input <= 0) {
+							System.out.println("Quantity must be greater than 0.");
+						} else {
+							valid = true;
+						}
 					} catch (NumberFormatException e) {
 						System.out.println("Invalid number, try again: ");
 					}
 				}
 
-				if (input <= productStock) { // input amount is less than or equal to available Product - Valid
-					double totalSales = Double.parseDouble(items[i][2]) * input; // Record total Sales amount.
-					productStock -= input; // Deduct amount purchased from stock.
-					items[i][3] = Integer.toString(productStock); // Update Main Array with new Quantity value for
-																	// Product.
-					// DISPLAY
+				if (input <= productStock) { 
+					double price = Double.parseDouble(items[i][2]);
+					double totalSales = price * input;
+					
+					productStock -= input; 
+					items[i][3] = Integer.toString(productStock); // Update Array
+
 					System.out.println("Transaction Successful.");
 
-					String transactionID = "TR" + transactionsMade; // Assigned ID for this transaction
+					// Recording Transaction
+					String transactionID = "TR" + transactionsMade; 
+					transactions[CurrentTransactionSlot][0] = transactionID; 
+					transactions[CurrentTransactionSlot][1] = items[i][0]; 
+					transactions[CurrentTransactionSlot][2] = Integer.toString(input); 
+					transactions[CurrentTransactionSlot][3] = Double.toString(totalSales); 
 
-					transactions[CurrentTransactionSlot][0] = transactionID; // Transaction ID
-					transactions[CurrentTransactionSlot][1] = items[i][0]; // Product ID
-					transactions[CurrentTransactionSlot][2] = Integer.toString(input); // Product Quantity Sold
-					transactions[CurrentTransactionSlot][3] = Double.toString(totalSales); // Product Total Sales
+					// Receipt Display
+					System.out.println("--------------------------------");
+					System.out.println("Transaction ID: " + transactions[CurrentTransactionSlot][0]);
+					System.out.println("Product ID:     " + transactions[CurrentTransactionSlot][1]);
+					System.out.println("Amount Sold:    " + transactions[CurrentTransactionSlot][2]);
+					System.out.println("Total Sales:    P" + transactions[CurrentTransactionSlot][3]);
+					System.out.println("--------------------------------");
 
-					// DISPLAY
-					System.out.println("[" + transactions[CurrentTransactionSlot][0] + "]");
-					System.out.println("• Product ID " + "[" + transactions[CurrentTransactionSlot][1] + "]");
-					System.out.println("• Amount Sold: " + transactions[CurrentTransactionSlot][2]);
-					System.out.println("• Total Sales: P" + transactions[CurrentTransactionSlot][3]);
-
-					if (CurrentTransactionSlot <= 9)
+					if (CurrentTransactionSlot < 9)
 						CurrentTransactionSlot++;
 					else
-						CurrentTransactionSlot = 0;
+						CurrentTransactionSlot = 0; // Overwrite loop
 
-					transactionsMade++; // Total amount of transactions made
+					transactionsMade++; 
 
-				} else { // Invalid Transaction
-
+				} else { 
 					System.out.println("Transaction Failed: Not Enough Stock!");
-
 				}
-				break; // break loop early if match is found.
-			} // Inner IF closing
-		} // Loop closing
+				break; 
+			} 
+		}
 
 		if (noMatch) {
-
-			System.out.println("No Product Found Matching the Provided ID. Please Double Check.");
-
+			System.out.println("No Product Found Matching the Provided ID.");
 		}
-		return;
 	}
 
 	private static boolean confirmDummyData() {
@@ -535,7 +553,6 @@ public class Main {
 		addTransactionToArray("TR07", "P001", "10", "9990.0");
 		addTransactionToArray("TR08", "P001", "10", "9990.0");
 		addTransactionToArray("TR09", "P001", "10", "9990.0");
-		addTransactionToArray("TR10", "P001", "10", "9990.0");
 		System.out.println("Debug Data added to relevant arrays.");
 		// Should overwrite TR00
 	}
