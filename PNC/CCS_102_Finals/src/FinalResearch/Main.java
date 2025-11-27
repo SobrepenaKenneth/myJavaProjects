@@ -271,7 +271,8 @@ public class Main {
 						System.out.print("Set New Product Price: ");
 						try {
 							newPrice = Double.parseDouble(scanner.nextLine());
-							if (newPrice < 0) System.out.println("Price cannot be negative.");
+							if (newPrice < 0)
+								System.out.println("Price cannot be negative.");
 						} catch (NumberFormatException e) {
 							System.out.println("Invalid input. Please enter a valid price.");
 							newPrice = -1;
@@ -288,7 +289,8 @@ public class Main {
 						System.out.print("Set New Available Stock Quantity: ");
 						try {
 							newAmount = Integer.parseInt(scanner.nextLine());
-							if (newAmount < 0) System.out.println("Stock cannot be negative.");
+							if (newAmount < 0)
+								System.out.println("Stock cannot be negative.");
 						} catch (NumberFormatException e) {
 							System.out.println("Invalid input. Please enter a whole number.");
 							newAmount = -1;
@@ -304,7 +306,7 @@ public class Main {
 				break; // Stop looking after finding the product
 			}
 		}
-		
+
 		if (noMatch)
 			System.out.println("No Matching Product Entry was found.");
 	}
@@ -333,6 +335,16 @@ public class Main {
 						items[d][2] = items[d + 1][2];
 						items[d][3] = items[d + 1][3];
 					}
+
+					// ADD THIS: Clean up the last slot to remove "ghost" data
+					int lastIndex = usedSlots - 1;
+					items[lastIndex][0] = null;
+					items[lastIndex][1] = null;
+					items[lastIndex][2] = null;
+					items[lastIndex][3] = null;
+
+					usedSlots -= 1;
+					System.out.println("Product Entry deleted succesfully.");
 					usedSlots -= 1;
 
 					System.out.println("Product Entry deleted succesfully.");
@@ -352,47 +364,56 @@ public class Main {
 
 	public static void SeeList() {
 		if (usedSlots <= 0) {
-			System.out.println();
-			System.out.println("Item List is Empty!");
-			System.out.println();
+			System.out.println("\nItem List is Empty!\n");
 			return;
 		}
+
 		System.out.println("");
-		System.out.println("----------------------------------------------------------------");
+		System.out.println("-----------------------------------------------------------------------");
 		System.out.println("ITEM LIST");
-		System.out.println("+------------------+-------------+---------------+---------------+");
-		System.out.println("|    Product ID    |    Name     |     Price     |    Quantity   |");
-		System.out.println("+------------------+-------------+---------------+---------------+");
+		// Header Layout
+		System.out.println("No.     Prod ID         Name                  Price           Quantity");
+		System.out.println("-----------------------------------------------------------------------");
+
 		for (int i = 0; i < usedSlots; i++) {
+			// 1. Print Index (Allocated Space: 8)
+			String indexStr = "[" + (i + 1) + "]";
+			System.out.print(indexStr);
+			for (int s = 0; s < (8 - indexStr.length()); s++)
+				System.out.print(" ");
 
-			String index = items[i][0];
-			if (index != null) {
-				System.out.print("[" + (i + 1) + "]");
-				if (i != 9)
-					System.out.print("      ");
-				else
-					System.out.print("     ");
-				for (int column = 0; column < 4; column++) {
-					String item = items[i][column];
-					int spaceVariance[] = { 0, 12, 18, 18 };
-					int spaceLength = spaceVariance[column] - item.length();
-					if (column != 0) {
+			// 2. Print ID (Allocated Space: 16)
+			// Fixes the issue where "1" vs "P001" shifted the row
+			String id = items[i][0];
+			System.out.print(id);
+			for (int s = 0; s < (16 - id.length()); s++)
+				System.out.print(" ");
 
-						for (int space = 1; space <= spaceLength; space++) { // e2 start
-							System.out.print(" ");
-						} // e1 loop end
-					}
-
-					System.out.print(items[i][column]);
-
-				} // column loop end
-				System.out.println();
+			// 3. Print Name (Allocated Space: 22)
+			// Increased space to fit "Mechanical Keyboard" (19 chars)
+			String name = items[i][1];
+			System.out.print(name);
+			// Prevent crash if name is super long by cutting it off visually if needed,
+			// or just ensure loop doesn't break
+			int namePadding = 22 - name.length();
+			if (namePadding > 0) {
+				for (int s = 0; s < namePadding; s++)
+					System.out.print(" ");
+			} else {
+				System.out.print(" "); // Minimal spacing if name is too long
 			}
-		}
-		System.out.println("----------------------------------------------------------------");
-		System.out.println("");
 
-		return;
+			// 4. Print Price (Allocated Space: 16)
+			String price = items[i][2];
+			System.out.print(price);
+			for (int s = 0; s < (16 - price.length()); s++)
+				System.out.print(" ");
+
+			// 5. Print Quantity (No padding needed for last column)
+			System.out.println(items[i][3]);
+		}
+		System.out.println("-----------------------------------------------------------------------");
+		System.out.println("");
 	}
 
 	public static void TransactionHistory() {
@@ -430,7 +451,7 @@ public class Main {
 			System.out.println("\nProduct List is Empty!");
 			return;
 		}
-		SeeList(); 
+		SeeList();
 		System.out.print("Transaction - Input Product ID : ");
 		String userInput = scanner.nextLine();
 		boolean noMatch = true;
@@ -439,7 +460,7 @@ public class Main {
 
 			if (userInput.equals(items[i][0])) {
 				noMatch = false;
-				
+
 				// Safely parse the current stock
 				int productStock = 0;
 				try {
@@ -468,21 +489,21 @@ public class Main {
 					}
 				}
 
-				if (input <= productStock) { 
+				if (input <= productStock) {
 					double price = Double.parseDouble(items[i][2]);
 					double totalSales = price * input;
-					
-					productStock -= input; 
+
+					productStock -= input;
 					items[i][3] = Integer.toString(productStock); // Update Array
 
 					System.out.println("Transaction Successful.");
 
 					// Recording Transaction
-					String transactionID = "TR" + transactionsMade; 
-					transactions[CurrentTransactionSlot][0] = transactionID; 
-					transactions[CurrentTransactionSlot][1] = items[i][0]; 
-					transactions[CurrentTransactionSlot][2] = Integer.toString(input); 
-					transactions[CurrentTransactionSlot][3] = Double.toString(totalSales); 
+					String transactionID = "TR" + transactionsMade;
+					transactions[CurrentTransactionSlot][0] = transactionID;
+					transactions[CurrentTransactionSlot][1] = items[i][0];
+					transactions[CurrentTransactionSlot][2] = Integer.toString(input);
+					transactions[CurrentTransactionSlot][3] = Double.toString(totalSales);
 
 					// Receipt Display
 					System.out.println("--------------------------------");
@@ -497,13 +518,13 @@ public class Main {
 					else
 						CurrentTransactionSlot = 0; // Overwrite loop
 
-					transactionsMade++; 
+					transactionsMade++;
 
-				} else { 
+				} else {
 					System.out.println("Transaction Failed: Not Enough Stock!");
 				}
-				break; 
-			} 
+				break;
+			}
 		}
 
 		if (noMatch) {
@@ -561,6 +582,13 @@ public class Main {
 	private static boolean addProductToArray(String id, String name, String price, String quantity) {
 		if (usedSlots >= items.length) {
 			return false;
+		}
+
+		// ADD THIS LOOP: Check for duplicate IDs before adding dummy data
+		for (int i = 0; i < usedSlots; i++) {
+			if (items[i][0].equals(id)) {
+				return false; // ID exists, skip adding this dummy item
+			}
 		}
 
 		items[usedSlots][0] = id;
