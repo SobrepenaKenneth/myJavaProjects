@@ -97,7 +97,7 @@ public class Main {
 			}
 			break;
 		default:
-			System.out.println("Invalid option! Please choose 1-4.");
+			System.out.println("Invalid option! Please choose 1-5.");
 			break;
 		}
 	}// End of showMainMenu()
@@ -202,7 +202,7 @@ public class Main {
 					}
 				}
 
-				// Quantity Validation (Must be a WHOLE number, e.g., 10)
+				// Must be a WHOLE number, e.g., 10
 				// <!> This prevents the crash in Sales Transaction <!>
 				if (l == 3) {
 					try {
@@ -216,7 +216,6 @@ public class Main {
 						continue;
 					}
 				}
-
 				// If all checks pass:
 				items[usedSlots][l] = input;
 				validIn = true;
@@ -343,9 +342,7 @@ public class Main {
 
 					usedSlots -= 1;
 					System.out.println("Product Entry deleted succesfully.");
-					usedSlots -= 1;
-
-					System.out.println("Product Entry deleted succesfully.");
+				
 				} else {
 
 					System.out.println("Product Entry deletion cancelled.");
@@ -504,9 +501,9 @@ public class Main {
 
 					// Receipt Display
 					System.out.println("--------------------------------");
-					System.out.println("Transaction ID: " + transactions[CurrentTransactionSlot][0]);
-					System.out.println("Product ID:     " + transactions[CurrentTransactionSlot][1]);
-					System.out.println("Amount Sold:    " + transactions[CurrentTransactionSlot][2]);
+					System.out.println("Transaction ID: "  + transactions[CurrentTransactionSlot][0]);
+					System.out.println("Product ID:     "  + transactions[CurrentTransactionSlot][1]);
+					System.out.println("Amount Sold:    "  + transactions[CurrentTransactionSlot][2]);
 					System.out.println("Total Sales:    P" + transactions[CurrentTransactionSlot][3]);
 					System.out.println("--------------------------------");
 
@@ -581,7 +578,7 @@ public class Main {
 			return false;
 		}
 
-		// ADD THIS LOOP: Check for duplicate IDs before adding dummy data
+		// Check for duplicate IDs before adding dummy data
 		for (int i = 0; i < usedSlots; i++) {
 			if (items[i][0].equals(id)) {
 				return false; // ID exists, skip adding this dummy item
