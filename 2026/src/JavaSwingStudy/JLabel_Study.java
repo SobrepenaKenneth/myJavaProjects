@@ -13,7 +13,7 @@ public class JLabel_Study {
 		ImageIcon icon = new ImageIcon("Shrek.png");
 		Image img = icon.getImage();
 
-		Image scaledImg = img.getScaledInstance(150, 150, img.SCALE_SMOOTH);
+		Image scaledImg = img.getScaledInstance(150, 150, Image.SCALE_SMOOTH);
 		
 		ImageIcon scaledIcon = new ImageIcon(scaledImg);
 		
