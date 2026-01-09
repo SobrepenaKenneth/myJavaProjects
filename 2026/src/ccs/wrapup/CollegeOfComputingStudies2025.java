@@ -1,5 +1,4 @@
 package ccs.wrapup;
-import ccs.wrapup.Events;
 
 public class CollegeOfComputingStudies2025 {
 
