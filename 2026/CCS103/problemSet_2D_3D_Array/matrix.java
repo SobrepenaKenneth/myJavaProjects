@@ -2,14 +2,18 @@ package problemSet_2D_3D_Array;
 
 import java.util.Scanner;
 
+/**
+ * Create a Java program that stores a 3×3 integer array and displays all
+ * elements in matrix form.
+ */
 public class matrix {
 	public static void main(String[] args) {
 		// Scanner object
 		Scanner scan = new Scanner(System.in);
-		
+
 		// Array matrix
 		int[][] numbers = new int[3][3];
-		
+
 		// Ask the user
 		System.out.println("Enter 9 numbers: ");
 		for (int rows = 0; rows < numbers.length; rows++) {
@@ -17,7 +21,7 @@ public class matrix {
 				numbers[rows][cols] = scan.nextInt();
 			}
 		}
-		
+
 		// Print the Matrix
 		System.out.println("-");
 		System.out.println("Matrix:");
@@ -27,7 +31,7 @@ public class matrix {
 			}
 			System.out.println();
 		}
-		
+
 		scan.close();
 	}
 }

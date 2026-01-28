@@ -2,45 +2,51 @@ package problemSet_2D_3D_Array;
 
 import java.util.Scanner;
 
-/**
- * Create a program that computes and displays the sum of all elements in a 2D
- * array.
- */
-public class sumOfAllElements {
+public class FindMinimumElement {
+
 	public static void main(String[] args) {
 		// Properties
 		Scanner sc = new Scanner(System.in);
-		int row, column, sum = 0;
+		int row, column;
 
-		System.out.println("=:> Sum of all Elements in a 2D Array <:=");
-		
+		System.out.println("=:> Find the Minimum Element in a 2D Array <:=");
+
+		// Input
 		// Ask the user
 		System.out.print("How many rows: ");
 		row = sc.nextInt();
-		
+
 		System.out.print("How many columns: ");
 		column = sc.nextInt();
-		
+
 		int[][] numberList = new int[row][column];
-		
+
 		// Ask the user Elements
 		for (int rows = 0; rows < numberList.length; rows++) {
 			System.out.println("=:> Row " + (rows + 1) + " <:=");
 			for (int cols = 0; cols < numberList[rows].length; cols++) {
-				System.out.print("Element [" + (cols + 1) + "] : " );
+				System.out.print("Element [" + (cols + 1) + "] : ");
 				numberList[rows][cols] = sc.nextInt();
 			}
 		}
-		
-		// Sum all the Elements
+
+		int min = numberList[0][0];
+
+		// Find The Largest
 		for (int rows = 0; rows < numberList.length; rows++) {
 			for (int cols = 0; cols < numberList[rows].length; cols++) {
-				sum += numberList[rows][cols];
+				if (min > numberList[rows][cols]) {
+					min = numberList[rows][cols];
+				}
 			}
 		}
-		
-		System.out.println("Sum of all elements: " + sum);
 
+		System.out.println("-");
+
+		// Output
+		System.out.println("Minimum element: " + min);
 		sc.close();
+
 	}
+
 }

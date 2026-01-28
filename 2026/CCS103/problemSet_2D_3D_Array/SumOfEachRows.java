@@ -3,16 +3,16 @@ package problemSet_2D_3D_Array;
 import java.util.Scanner;
 
 /**
- * Create a program that computes and displays the sum of all elements in a 2D
+ * Write a program that calculates and displays the sum of each row in a 2D
  * array.
  */
-public class sumOfAllElements {
+public class SumOfEachRows {
 	public static void main(String[] args) {
 		// Properties
 		Scanner sc = new Scanner(System.in);
-		int row, column, sum = 0;
+		int row, column, sumOfCurrentRow = 0;
 
-		System.out.println("=:> Sum of all Elements in a 2D Array <:=");
+		System.out.println("=:> Sum of each Rows in a 2D Array <:=");
 		
 		// Ask the user
 		System.out.print("How many rows: ");
@@ -32,15 +32,15 @@ public class sumOfAllElements {
 			}
 		}
 		
-		// Sum all the Elements
+		// Sum of each Rows
 		for (int rows = 0; rows < numberList.length; rows++) {
 			for (int cols = 0; cols < numberList[rows].length; cols++) {
-				sum += numberList[rows][cols];
+				sumOfCurrentRow += numberList[rows][cols];
 			}
+			System.out.println("Row " + (rows + 1) + " Sum: " + sumOfCurrentRow);
+			sumOfCurrentRow = 0; // Resets
 		}
 		
-		System.out.println("Sum of all elements: " + sum);
-
 		sc.close();
 	}
 }
