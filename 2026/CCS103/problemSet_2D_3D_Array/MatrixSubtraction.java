@@ -2,14 +2,14 @@ package problemSet_2D_3D_Array;
 
 import java.util.Scanner;
 
-public class MatrixAddition {
+public class MatrixSubtraction {
 	public static void main(String[] args) {
 		// Properties
 		// TODO: The rows and column has to be the same!
 		Scanner sc = new Scanner(System.in);
 		int row, column;
 
-		System.out.println("=:> Matrix Addition <:=");
+		System.out.println("=:> Matrix Subtraction <:=");
 		// Ask the user
 		System.out.print("How many rows: ");
 		row = sc.nextInt();
@@ -48,26 +48,26 @@ public class MatrixAddition {
 				array_Two[rows][cols] = sc.nextInt();
 			}
 		}
-		
+
 		// PROCESS
 		for (int rows = 0; rows < array_Two.length; rows++) {
 			for (int cols = 0; cols < array_Two[rows].length; cols++) {
-				sum[rows][cols] = array_One[rows][cols] + array_Two[rows][cols];
+				sum[rows][cols] = array_One[rows][cols] - array_Two[rows][cols];
 			}
 		}
-		
+
 		System.out.println("-");
-		
+
 		// OUTPUT
 		System.out.println("Resultant Matrix:");
-		
+
 		for (int rows = 0; rows < array_One.length; rows++) {
 			for (int cols = 0; cols < array_One[rows].length; cols++) {
 				System.out.print(sum[rows][cols] + " ");
 			}
 			System.out.println();
 		}
-		
+
 		sc.close();
 
 	}
