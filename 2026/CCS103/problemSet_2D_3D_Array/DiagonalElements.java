@@ -1,14 +1,17 @@
 package problemSet_2D_3D_Array;
 
 import java.util.Scanner;
-public class TransposeOfAMatrix {
+
+public class DiagonalElements {
+
 	public static void main(String[] args) {
+		// Properties
 		Scanner sc = new Scanner(System.in);
 		int row, column;
+
+		System.out.println("=:> Diagonal Elements <:=");
 		
-		System.out.println("=:> Transpose of a Matrix <:=");
-		
-		//INPUT
+		// INPUT
 		// Ask the user
 		System.out.print("How many rows: ");
 		row = sc.nextInt();
@@ -19,7 +22,6 @@ public class TransposeOfAMatrix {
 		System.out.println("-");
 		
 		int[][] numberList = new int[row][column];
-		int[][] emptyList = new int[column][row];
 		
 		// Ask the user Elements
 		for (int rows = 0; rows < numberList.length; rows++) {
@@ -30,24 +32,15 @@ public class TransposeOfAMatrix {
 			}
 		}
 		
-		// PROCESS
-		for (int rows = 0; rows < numberList.length; rows++) {
-			for (int cols = 0; cols < numberList[rows].length; cols++) {
-				emptyList[cols][rows] = numberList[rows][cols];
-			}
-		}
-		
 		System.out.println("-");
 		
-		System.out.println("Transpose Matrix:");
-		
-		// Output
-		for (int rows = 0; rows < numberList.length; rows++) {
-			for (int cols = 0; cols < numberList[rows].length; cols++) {
-				System.out.print(emptyList[rows][cols] + " ");
-			}
-			System.out.println();
+		System.out.println("Diagonal Elements:");
+		// OUTPUT
+		for (int index = 0; index < numberList.length; index++) {
+			System.out.println(numberList[index][index]);
 		}
+		
 		sc.close();
+
 	}
 }
