@@ -31,7 +31,7 @@ public class FindMaximumElement {
 		
 		int max = numberList[0][0];
 		
-		// Find The Largest
+		// PROCESS
 		for (int rows = 0; rows < numberList.length; rows++) {
 			for (int cols = 0; cols < numberList[rows].length; cols++) {
 				if (max < numberList[rows][cols]) {
