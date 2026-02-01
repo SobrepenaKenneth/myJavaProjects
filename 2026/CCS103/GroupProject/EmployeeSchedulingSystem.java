@@ -3,12 +3,14 @@ package GroupProject;
 import java.util.Scanner;
 
 /**
- * Version 0.3 palitan tong version everytime na mag edit po kayo! Always
- * refresh!!
+ * Version 0.3 palitan tong version everytime na mag edit po kayo! 
+ * Always refresh!!
+ * 
+ * We will assist as much as we can!
  */
 public class EmployeeSchedulingSystem {
 	/**
-	 * Properties: This will are the variables that will be used throughout the
+	 * Properties: This are the variables that will be used throughout the
 	 * software
 	 */
 	private static Scanner scan = new Scanner(System.in);
@@ -118,7 +120,7 @@ public class EmployeeSchedulingSystem {
 			break;
 
 		}
-	}
+	}// menuController() method
 
 	/*
 	 * REQUIRED METHOD Assigned to : ? ver - 0
@@ -129,7 +131,7 @@ public class EmployeeSchedulingSystem {
 
 	public static void exit() {
 		// Menu test delete nalang
-		System.out.println("Exit test");
-	}
-
+		System.out.println("Thank you for using the Mall Employee Scheduling System!");
+		System.out.println("Program Terminated");
+	}// exit() method
 }
