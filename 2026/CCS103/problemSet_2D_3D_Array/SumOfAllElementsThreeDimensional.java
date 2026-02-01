@@ -7,7 +7,7 @@ public class SumOfAllElementsThreeDimensional {
 		Scanner scan = new Scanner(System.in);
 		int row, col, layer, sum = 0;
 		
-		System.out.println("=:> Display a 3D Array <:=");
+		System.out.println("=:> Sum of all elements <:=");
 		System.out.print("How many layers: ");
 		layer = scan.nextInt();
 		System.out.print("How many rows: ");
@@ -22,7 +22,7 @@ public class SumOfAllElementsThreeDimensional {
 		// INPUT 
 		// I used unicode for the bullet looks better in console :3
 		for (int layers = 0; layers < numbers.length; layers++) {
-			System.out.println("===== Layer " + (layers + 1) + " =====");
+			System.out.println("===== Layer " + (layers + 1) + " =====");	
 			for (int rows = 0; rows < numbers[layers].length; rows++) {
 				System.out.println("Row " + (rows + 1) + ":");
 				for (int cols = 0; cols < numbers[layers][rows].length; cols++) {

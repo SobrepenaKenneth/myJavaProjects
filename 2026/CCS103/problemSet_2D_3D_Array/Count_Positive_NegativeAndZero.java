@@ -7,7 +7,7 @@ public class Count_Positive_NegativeAndZero {
 		Scanner scan = new Scanner(System.in);
 		int row, col, layer, positive = 0, negative = 0, zero = 0;
 		
-		System.out.println("=:> Display a 3D Array <:=");
+		System.out.println("=:> Count Positive, Negative, and Zero <:=");
 		System.out.print("How many layers: ");
 		layer = scan.nextInt();
 		System.out.print("How many rows: ");

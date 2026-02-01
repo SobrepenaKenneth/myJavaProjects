@@ -46,11 +46,7 @@ public class searchAnElementInThreeDimensional {
 			}
 		}
 		
-		//PROCESS
-		
-		
 		scan.close();
-
 	}
 
 }

@@ -2,52 +2,134 @@ package GroupProject;
 
 import java.util.Scanner;
 
+/**
+ * Version 0.3 palitan tong version everytime na mag edit po kayo! Always
+ * refresh!!
+ */
 public class EmployeeSchedulingSystem {
-	// Properties
-	private static Scanner sc = new Scanner(System.in);
-	private static String[] days = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
-	private static String[] shifts = {"M", "A", "E"};
-	private static String[] employee_List = new String[0];
-	private static int employees = employee_List.length;
-	private static String[][][] mall_Schedule = new String[employees][3][6];
-	
-	
+	/**
+	 * Properties: This will are the variables that will be used throughout the
+	 * software
+	 */
+	private static Scanner scan = new Scanner(System.in);
+
+	// user input used in Menu
+	private static int input = 0;
+
 	public static void main(String[] args) {
-		intialize_Mall_Sched();
+		System.out.println("===================================================");
+		System.out.println("          MALL EMPLOYEE SCHEDULING SYSTEM          ");
+		System.out.println("===================================================");
+		System.out.println("Legend: M = Morning | A = Afternoon | E - Evening");
+
+		System.out.println("\n      <<Press Enter to Begin Setup Process>>");
+		scan.nextLine();
+
+		menuController();
 
 	}
-	
-	private static void intialize_Mall_Sched() {
-		// Days
-		for (int i = 1, j = 0; i <= 7; i++, j++) {
-			mall_Schedule[0][0][i] = days[j];
-		}
-		
-		// Shifts
-		for (int a = 1, b = 0; a <= 3; a++, b++) {
-			mall_Schedule[0][a][b] = shifts[b];
-		}
-			
+
+	/*
+	 * REQUIRED METHOD Assigned to : Abo-Abo ver - 0
+	 */
+	public static void displaySchedule() {
+		// Menu test delete nalang
+		System.out.println("Display Schedule test");
 	}
-	
-	public static void _View_Employee_Sched() {
+
+	/*
+	 * REQUIRED METHOD Assigned to : Paz ver - 0
+	 */
+	public static void assignEmployee() {
+		// Menu test delete nalang
+		System.out.println("Assign Employee test");
+	}
+
+	/*
+	 * REQUIRED METHOD Assigned to : Gabriel ver - 0
+	 */
+	public static void validateInput() {
 
 	}
-	
-	public static void _AssignEmployee() {
-		
+
+	/*
+	 * REQUIRED METHOD Assigned to : Cairo ver - 0
+	 */
+	public static void checkDuplicateEmployee() {
+
 	}
-	
-	public static void _Update_Employee() {
-		
+
+	/*
+	 * REQUIRED METHOD Assigned to : ? ver - 0
+	 */
+	public static void updateOrRemoveEmployee() {
+		// Menu test delete nalang
+		System.out.println("Update / Remove Employee test");
 	}
-	
-	public static void _Search_Employee() {
-		
+
+	/*
+	 * REQUIRED METHOD Assigned to : Galasao ver - 0
+	 */
+	public static void searchEmployee() {
+		// Menu test delete nalang
+		System.out.println("Search Employee test");
 	}
-	
-	public static void _Exit_The_System() {
+
+	/*
+	 * REQUIRED METHOD Assigned to : Granada ver - 0
+	 */
+	public static void calculateWorkingHours() {
+
+	}
+
+	/*
+	 * REQUIRED METHOD Assigned to : Ken ver - 1
+	 */
+	public static void menuController() {
+		System.out.println("===================================================");
+		System.out.println("\t\t     MAIN-MENU");
+		System.out.println("===================================================");
+		System.out.println("[1] View Employee Schedule");
+		System.out.println("[2] Assign Employee to a Shift");
+		System.out.println("[3] Update / Remove Employee");
+		System.out.println("[4] Search Employee");
+		System.out.println("[5] Exit");
+
+		System.out.print("\nEnter your Choice: ");
+		input = scan.nextInt();
 		
+		System.out.println();
+
+		switch (input) {
+		case 1:
+			displaySchedule();
+			break;
+		case 2:
+			assignEmployee();
+			break;
+		case 3:
+			updateOrRemoveEmployee();
+			break;
+		case 4:
+			searchEmployee();
+			break;
+		case 5:
+			exit();
+			break;
+
+		}
+	}
+
+	/*
+	 * REQUIRED METHOD Assigned to : ? ver - 0
+	 */
+	public static void dailySummaryReport() {
+
+	}
+
+	public static void exit() {
+		// Menu test delete nalang
+		System.out.println("Exit test");
 	}
 
 }

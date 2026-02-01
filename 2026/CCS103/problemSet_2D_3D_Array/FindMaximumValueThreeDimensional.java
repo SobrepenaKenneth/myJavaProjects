@@ -7,7 +7,7 @@ public class FindMaximumValueThreeDimensional {
 		Scanner scan = new Scanner(System.in);
 		int row, col, layer;
 		
-		System.out.println("=:> Display a 3D Array <:=");
+		System.out.println("=:> Find Maxinum Value <:=");
 		System.out.print("How many layers: ");
 		layer = scan.nextInt();
 		System.out.print("How many rows: ");
