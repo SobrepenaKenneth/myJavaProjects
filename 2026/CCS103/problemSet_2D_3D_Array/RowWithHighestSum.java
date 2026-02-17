@@ -58,7 +58,7 @@ public class RowWithHighestSum {
 		}// Inner Loop
 		
 		System.out.println("Row with highest sum: Row " + (rowIndex + 1));
-		
+		sc.close();
 
 	}
 }

@@ -55,7 +55,7 @@ public class ArrayStudy {
 	 * Status: Solving Currently
 	 */
 	public static void index_Of_Array() {
-		int col = 0, count = 0;
+		int col = 0;
 		boolean found = false;
 
 		System.out.print("How many numbers to add: ");
@@ -83,11 +83,9 @@ public class ArrayStudy {
 			if (find_Element == item) {
 				found = true;
 				System.out.println(found);
-				count++;
 				break;
 			} else {
 				System.out.println(found);
-				count++;
 				break;
 			}
 			
