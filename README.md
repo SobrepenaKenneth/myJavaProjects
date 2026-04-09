@@ -1,167 +1,65 @@
-# My Java Projects
+# ☕ Java Study 2026 – My CS Journey
 
-A collection of Java applications and utilities demonstrating various programming concepts and practical implementations.
+[![Java Version](https://img.shields.io/badge/Java-8%2B-blue.svg)](https://www.oracle.com/java/technologies/downloads/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Stars](https://img.shields.io/github/stars/SobrepenaKenneth/Java-Study-2026?style=social)](https://github.com/SobrepenaKenneth/Java-Study-2026/stargazers)
 
-## 📁 Project Structure
+> **From beginner to builder** – A complete collection of Java projects, practice code, and concepts as I progress through my Computer Science degree.
 
-```
-myJavaProjects/
-├── AddressBook/
-│   ├── AddressBook.java
-│   └── README.md
-├── BasicCalculator/
-│   ├── BasicCalculator.java
-│   └── README.md
-├── EmployeeManagementSystem/
-│   ├── Employee.java
-│   ├── EmployeeManagementSystem.java
-│   └── README.md
-├── FileEncryptionTool/
-│   ├── FileEncryptionTool.java
-│   └── README.md
-├── GuessingGame/
-│   ├── GuessingGame.java
-│   └── README.md
-├── InventoryManagementSystem/
-│   ├── InventoryManagementSystem.java
-│   └── README.md
-├── NumberGuessingGame/
-│   ├── NumberGuessingGame.java
-│   └── README.md
-├── SimpleBankingSystem/
-│   ├── SimpleBankingSystem.java
-│   └── README.md
-├── StudentGradeTracker/
-│   ├── StudentGradeTracker.java
-│   └── README.md
-├── TaskManager/
-│   ├── TaskManager.java
-│   └── README.md
-├── TemperatureConverter/
-│   ├── TemperatureConverter.java
-│   └── README.md
-├── TextBasedAdventureGame/
-│   ├── TextBasedAdventureGame.java
-│   └── README.md
-├── TicTacToe/
-│   ├── TicTacToe.java
-│   └── README.md
-├── ToDoList/
-│   ├── ToDoList.java
-│   └── README.md
-└── UnitConverter/
-    ├── UnitConverter.java
-    └── README.md
-```
+## 📖 About This Repository
 
-## 🚀 Projects Overview
+This repository documents my **hands-on journey learning Java**. Every project here represents a concept I've mastered, a problem I've solved, or a system I've built from scratch. Think of it as my public coding journal – growing every week, one commit at a time.
 
-### 1. **AddressBook**
-A contact management system for storing and managing personal contacts.
+## 🗂️ Project Showcase
 
-### 2. **BasicCalculator**
-A simple calculator application supporting basic arithmetic operations.
+| Project | Description | Key Concepts |
+|---------|-------------|--------------|
+| **📇 AddressBook** | Contact management system | OOP, Collections, Search |
+| **🧮 BasicCalculator** | Arithmetic operations | Methods, User input |
+| **👔 EmployeeManagementSystem** | Employee record keeping | CRUD, ArrayLists |
+| **🔐 FileEncryptionTool** | Basic file encryption | File I/O, Algorithms |
+| **🎲 GuessingGame** | Number guessing with hints | Random, Loops |
+| **📦 InventoryManagementSystem** | Product tracking | HashMap, Validation |
+| **🏦 SimpleBankingSystem** | Account operations | Classes, Encapsulation |
+| **📊 StudentGradeTracker** | Grade calculation | Arrays, Statistics |
+| **✅ TaskManager / ToDoList** | Productivity tools | Lists, File storage |
+| **🌡️ TemperatureConverter** | Unit conversion | Formulas, Formatting |
+| **📖 TextBasedAdventureGame** | Interactive story game | Conditionals, Scanner |
+| **⭕ TicTacToe** | Classic game vs AI | 2D arrays, Game logic |
 
-### 3. **EmployeeManagementSystem**
-A system for managing employee records and information.
+> **More projects are added regularly** – check the `2026` folder for my latest work!
 
-### 4. **FileEncryptionTool**
-A utility for encrypting and decrypting files using basic encryption algorithms.
+## 🛠️ Technologies & Concepts
 
-### 5. **GuessingGame** & **NumberGuessingGame**
-Interactive games where players guess numbers within a specified range.
+![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![OOP](https://img.shields.io/badge/OOP-Object_Oriented-9cf?style=for-the-badge)
 
-### 6. **InventoryManagementSystem**
-A system for tracking and managing product inventory.
+- **Core Java** – Variables, data types, operators, control flow
+- **OOP Principles** – Encapsulation, inheritance, polymorphism, abstraction
+- **Data Structures** – Arrays, ArrayLists, HashMaps, Lists
+- **File I/O** – Reading/writing files, basic encryption
+- **Algorithms** – Search, sort, game logic, random generation
+- **Console UI** – Interactive menu systems, input validation
 
-### 7. **SimpleBankingSystem**
-A basic banking application simulating account operations.
+## 🚀 Quick Start
 
-### 8. **StudentGradeTracker**
-A tool for tracking and calculating student grades and performance.
+### Prerequisites
+- **JDK 8+** – [Download here](https://www.oracle.com/java/technologies/downloads/)
+- Any IDE or text editor (VS Code, IntelliJ, Eclipse, or even Notepad++)
 
-### 9. **TaskManager** & **ToDoList**
-Productivity applications for managing tasks and to-do lists.
+### Run Any Project
 
-### 10. **TemperatureConverter** & **UnitConverter**
-Utilities for converting between different units of measurement.
+```bash
+# 1. Clone the repository
+git clone https://github.com/SobrepenaKenneth/Java-Study-2026.git
 
-### 11. **TextBasedAdventureGame**
-An interactive text-based adventure game with multiple scenarios.
+# 2. Navigate into it
+cd Java-Study-2026
 
-### 12. **TicTacToe**
-The classic Tic-Tac-Toe game implemented in Java.
+# 3. Pick a project (example: TicTacToe)
+cd 2026/TicTacToe    # or cd 2025/SimpleBankingSystem
 
-## 🛠️ Technologies Used
+# 4. Compile and run
+javac TicTacToe.java
+java TicTacToe
 
-- **Java** - Primary programming language
-- **Object-Oriented Programming** principles
-- **File I/O** operations
-- **Data Structures** and algorithms
-- **Console-based user interfaces**
-
-## 📋 Prerequisites
-
-- Java Development Kit (JDK) 8 or higher
-- Any Java IDE (Eclipse, IntelliJ IDEA, VS Code) or text editor
-- Basic understanding of Java programming
-
-## 🔧 Installation & Setup
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/SobrepenaKenneth/myJavaProjects.git
-   ```
-
-2. **Navigate to the project directory**
-   ```bash
-   cd myJavaProjects
-   ```
-
-3. **Compile and run any project**
-   ```bash
-   # Example for BasicCalculator
-   cd BasicCalculator
-   javac BasicCalculator.java
-   java BasicCalculator
-   ```
-
-## 🎯 How to Use
-
-Each project is self-contained in its own directory. To run a specific project:
-
-1. Navigate to the project folder
-2. Compile the Java file: `javac [FileName].java`
-3. Run the compiled class: `java [FileName]`
-
-## 📚 Learning Objectives
-
-This repository demonstrates:
-- Core Java programming concepts
-- Object-Oriented Design principles
-- Problem-solving approaches
-- User input handling
-- Data manipulation and storage
-- Algorithm implementation
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit pull requests or open issues for improvements.
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## 👨‍💻 Author
-
-**Kenneth Sobrepena**
-
-- GitHub: [@SobrepenaKenneth](https://github.com/SobrepenaKenneth)
-
-## 📞 Contact
-
-If you have any questions or suggestions, please feel free to reach out or create an issue in the repository.
-
----
-
-**⭐ Don't forget to star this repository if you find it helpful!**
