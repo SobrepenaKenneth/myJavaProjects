@@ -10,10 +10,13 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import java.awt.Color;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -37,16 +40,18 @@ public class Practice_FinalsGUI extends JFrame {
 	private final JTextField txtFruits = new JTextField();
 	
 	// JComboBox
-	private final JComboBox cboFruits = new JComboBox();
+	private final JComboBox<String> cboFruits = new JComboBox<>();
 	
 	// JButton
 	private final JButton btnAdd = new JButton("ADD");
 	
-	// JList
-	private final JList list = new JList();
+	// JList & Model
+	private final DefaultListModel<String> lstModel = new DefaultListModel<String>();
+	private final JList<String> listFruits = new JList<String>(lstModel);
 	
 	// JScrollPane
 	private final JScrollPane scrollPane = new JScrollPane();
+	private final JButton btnClear = new JButton("CLEAR");
 
 	/**
 	 * Launch the application.
@@ -95,6 +100,13 @@ public class Practice_FinalsGUI extends JFrame {
 		// ========================
 		// XXX JCOMBOBOX
 		// ========================
+		cboFruits.setFont(new Font("Segoe UI", Font.PLAIN, 20));
+		listFruits.setFont(new Font("Segoe UI", Font.PLAIN, 20));
+		
+		// ========================
+		// XXX JLIST && MODEL
+		// ========================
+		scrollPane.setViewportView(listFruits);
 		
 		// ========================
 		// XXX CONTENT PANE
@@ -114,7 +126,6 @@ public class Practice_FinalsGUI extends JFrame {
 		// - WEST PANEL
 		westPanel.add(lblFruits);
 		westPanel.add(txtFruits);
-		cboFruits.setFont(new Font("Segoe UI", Font.PLAIN, 20));
 		
 		// - CENTER PANEL
 		centerPanel.add(cboFruits);
@@ -124,10 +135,15 @@ public class Practice_FinalsGUI extends JFrame {
 		
 		// - EAST PANEL
 		eastPanel.add(scrollPane);
-		scrollPane.setViewportView(list);
+		
 		
 		// - SOUTH PANEL
 		southPanel.add(btnAdd);
+		btnClear.setForeground(Color.WHITE);
+		btnClear.setFont(new Font("Segoe UI Black", Font.BOLD, 20));
+		btnClear.setBackground(new Color(255, 99, 71));
+		
+		southPanel.add(btnClear);
 	
 		// ========================
 		
@@ -142,9 +158,21 @@ public class Practice_FinalsGUI extends JFrame {
 	}
 	
 	// XXX NOTE: Components are instance variable not static
+	/**
+	 * This method adds an Item to ComboBox and List
+	 */
 	private void addItem() {
+		// For debugging
+		System.out.println("Added an Item!");
+		
 		String fruit = txtFruits.getText().trim();
 		
+		if (!fruit.isEmpty()) {
+			cboFruits.addItem(fruit);
+			lstModel.addElement(fruit);
+		} else {
+			JOptionPane.showMessageDialog(contentPane, "Field must have an item!");
+		}
 	}
 
 }
