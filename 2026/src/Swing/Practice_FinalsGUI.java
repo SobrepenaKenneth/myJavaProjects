@@ -209,8 +209,8 @@ public class Practice_FinalsGUI extends JFrame {
 		if (index != -1) {
 			System.out.println("Removed an item!");
 			String item = lstModel.getElementAt(index);
-			lstModel.remove(index); 
-			cboFruits.removeItem(item); 
+			lstModel.remove(index);  // List
+			cboFruits.removeItem(item); // ComboBox
 			
 		} else {
 			System.out.println("No item selected!");
@@ -223,7 +223,8 @@ public class Practice_FinalsGUI extends JFrame {
 	 */
 	private void clearItem() {
 		System.out.println("Clear Button Clicked!");
-		cboFruits.removeAllItems();
-		lstModel.clear();
+		cboFruits.removeAllItems(); // ComboBox
+		lstModel.clear(); // List
 	}// End of clearItem()
+	
 }// End of Class
