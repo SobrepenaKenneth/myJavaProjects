@@ -4,7 +4,7 @@ public class SigmaNotation {
 
 	// For this study i will use methods to separate each expression problem
 	public static void main(String[] args) {
-		//problemOne();
+		problemOne();
 		problemTwo();
 
 	}
