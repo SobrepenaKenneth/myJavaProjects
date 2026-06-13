@@ -2,10 +2,19 @@ package OOP;
 
 public class Main {
 	public static void main(String[] args) {
-		carStudy();
+		//carStudy();
+		studentStudy();
 	}
 
-	public static void carStudy() {
+	static void studentStudy() {
+		Student student1 = new Student("Kenneth", "Mahogany", 2501047);
+		Student student2 = new Student("Felonia", "Faraday", 827644);
+		
+		student1.printDetails();
+		student2.printDetails(true);
+	}
+	
+	static void carStudy() {
 		// Create a single car instance as required
 		Car car = new Car("Toyota Camry", 2022, 50.0, true);
 
@@ -25,4 +34,13 @@ public class Main {
 		System.out.println("\n--- Attempting to rent again ---");
 		car.rentCar(3);
 	}
+	
+	static void carStudyTwo() {
+		CarTwo car = new CarTwo("Blue");
+		
+		car.printDetails();
+		car.startEngine();
+	}
+	
+	
 }
